@@ -1,4 +1,30 @@
 ThePitch::Application.routes.draw do
+  
+
+
+  get '/users', controller: 'Users', action: 'index', as: 'users'
+  
+  get '/user/new', controller: 'Users', action: 'new'
+  
+  post '/user', controller: 'Users', action: 'create'
+  
+  get '/user/:id', controller: 'Users', action: 'show'
+  
+  get '/user/:id/edit', controller: 'Users', action: 'edit', as: 'edit_user'
+ 
+  put '/user/:id', controller: 'Users', action: 'update'
+  
+  delete 'user/:id', controller: 'Users', action: 'destroy'
+  
+  
+    
+  
+  
+
+ 
+
+  
+    
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
