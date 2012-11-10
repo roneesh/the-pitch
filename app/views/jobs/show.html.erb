@@ -4,5 +4,14 @@ Title: <%= @job.title%></br>
 Description: <%= @job.description%>
 Employer_Id: <%= @job.employer.name%>
 
+<br><br>
+<b>Pitches for this job (A lookbook!):
+<ul>
+<% @pitches.each do |pitch_object| %>
+	<li><%= link_to pitch_object.headline, pitch_url(pitch_object.id) %>
+	</li>
+<%end%>
+</ul>
+
 <%= link_to "Edit", edit_job_url%>
 <%= link_to "Destroy ME!", destroy_job_url, :method => 'delete'%>
