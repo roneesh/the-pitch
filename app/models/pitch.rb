@@ -3,4 +3,8 @@ class Pitch < ActiveRecord::Base
 
   has_attached_file :profilepic
   
+  belongs_to :job
+  belongs_to :user
+  
+  
 end
