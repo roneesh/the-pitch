@@ -1,0 +1,8 @@
+<h1> Show me the job </h1>
+
+Title: <%= @job.title%></br>
+Description: <%= @job.description%>
+Employer_Id: <%= @job.employer.name%>
+
+<%= link_to "Edit", edit_job_url%>
+<%= link_to "Destroy ME!", destroy_job_url, :method => 'delete'%>

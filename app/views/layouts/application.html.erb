@@ -10,9 +10,18 @@
 <nav>
   <%= link_to "Employers", employers_url %> |
   
-  <%= link_to "New Employer", new_employer_url %>
+  <%= link_to "New Employer", new_employer_url %> |
   
-
+  <%= link_to "Jobs Listing", jobs_url %> |
+  
+  <%= link_to "New Job", new_job_url %> |
+  
+  <% if session[:user_id]==nil %>
+    <%= link_to "Login", login_url%>
+  <% else %>
+    Welcome back, <%= Employer.find_by_id(session[:user_id]).name %>
+    <%= link_to "Logout", logout_url%>
+  <%end%>
 </nav>
 <%= yield %>
 

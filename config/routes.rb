@@ -1,5 +1,7 @@
 ThePitch::Application.routes.draw do
-
+get '/login' => 'sessions#new', :as => 'login'
+post '/sessions/create' => 'sessions#create'
+get '/logout' => 'sessions#destroy', :as => 'logout'
 
 get '/pitches/new' => 'Pitch#new', :as => 'new_pitch'
 post '/pitches' => 'Pitch#create'
@@ -22,7 +24,15 @@ get '/employers/:id/edit' => 'employers#edit', :as => 'edit'
 put '/employers/:id' => 'employers#update', :as => 'update'
 delete '/employers/:id' => 'employers#destroy', :as => 'delete'
 
+get '/jobs' => 'jobs#index', :as => 'jobs'
+get '/jobs/new' => 'jobs#new', :as => 'new_job'
+post '/jobs' => 'jobs#create'
 
+get '/jobs/:id' => 'jobs#show', :as => 'job'
+get '/jobs/:id/edit' => 'jobs#edit', :as => 'edit_job'
+put '/jobs/:id' => 'jobs#update', :as => 'update_job'
+
+delete '/jobs/:id' => 'jobs#destroy', :as => 'destroy_job'
 end
 
 
