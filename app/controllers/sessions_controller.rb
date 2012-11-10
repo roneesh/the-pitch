@@ -19,4 +19,8 @@ class SessionsController < ApplicationController
     redirect_to login_url
   end
   
+  def newuser
+  
+  end
+  
 end

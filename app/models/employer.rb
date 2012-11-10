@@ -3,7 +3,9 @@ class Employer < ActiveRecord::Base
   
   has_secure_password
   
-  def job
+  has_many :pitches, :through => :jobs
+  
+  def jobs
     Job.where(:employer_id => self.id )
   end
 end

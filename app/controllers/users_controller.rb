@@ -19,19 +19,19 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @user.save
-    redirect_to user_path
+    redirect_to users_path
   end
 
   def update
     @user = User.find_by_id(params[:id])
     @user.update_attributes(params[:user])
-    redirect_to users_url(@user.id)
+    redirect_to user_url
   end
  
   def destroy
     @user = User.find_by_id(params[:id])
     @user.destroy
-    redirect_to user_path
+    redirect_to users_url
   end
  
 
