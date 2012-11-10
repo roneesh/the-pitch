@@ -8,15 +8,15 @@ get 'userlogin' => 'sessions#newuser', :as => 'userlogin'
 
 
 
-# get '/users', controller: 'Users', action: 'index', as: 'users'
-# post '/users', controller: 'Users', action: 'create'
-# get '/users/new' => 'Users#new'
-# get '/users/:id/edit', controller: 'Users', action: 'edit', as: 'edit_user'
-# get '/users/:id', controller: 'Users', action: 'show', :as => 'user'
-# 
-# put '/users/:id', controller: 'Users', action: 'update'
-# delete '/users/:id', controller: 'Users', action: 'destroy'
-resources :users
+get '/users', controller: 'Users', action: 'index', as: 'users'
+post '/users', controller: 'Users', action: 'create'
+get '/users/new' => 'Users#new'
+get '/users/:id/edit', controller: 'Users', action: 'edit', as: 'edit_user'
+get '/users/:id', controller: 'Users', action: 'show', :as => 'user'
+
+put '/users/:id', controller: 'Users', action: 'update'
+delete '/users/:id', controller: 'Users', action: 'destroy'
+
 
 get '/pitches/new' => 'Pitch#new', :as => 'new_pitch'
 post '/pitches' => 'Pitch#create'
