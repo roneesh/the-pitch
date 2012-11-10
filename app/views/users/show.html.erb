@@ -6,13 +6,16 @@
   <%= @user.email%>  
 </p>
 
-<p><strong>Pitches:</strong><br>
-  Insert embedded ruby for Pitch once we're linked up
+<p><strong>Existing Pitches:</strong><br>
+  <ul>
+  <% @user.pitches.each do |pitch_object| %>
+  		<li> <%= link_to pitch_object.headline, pitch_url(pitch_object.id) %> |
+  			 <%= link_to "Edit", edit_pitch_url(pitch_object.id) %>
+  		</li>
+  <%end%>
+</ul>
 </p>
 
-<p><strong>Jobs:</strong><br>
-  Insert embedded ruby for Jobs once we're linked up
-</p>
 
 <p><strong>Other Stuff:</strong><br>
   Insert embedded ruby for Other Stuff once we're linked up

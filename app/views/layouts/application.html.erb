@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <h3> <%= flash[:message] %>
 <nav>
   <%#= link_to "Employers", employers_url %> 
 
@@ -15,13 +16,13 @@
   <%#= link_to "Users", users_url %> 
   <%#= link_to "New Users", users_new_url %> 
   
-  <% if session[:user_id]==nil %>
+  <% if session[:user_id]==nil && session[:employer_id] == nil %>
       <h3 id="slogan"> Find the person. Get the job. </h3>
-  <% elsif Employer.find_by_id(session[:user_id])%> |
-      <%= link_to "Dashboard", employer_url(session[:user_id]) %> |
+  <% elsif Employer.find_by_id(session[:employer_id])%> |
+      <%= link_to "Dashboard", employer_url(session[:employer_id]) %> |
       <%= link_to "New Job", new_job_url %> |
       <%= link_to "Jobs Listing", jobs_url %> |
-    Welcome back, <%= Employer.find_by_id(session[:user_id]).name %> 
+    Welcome back, <%= Employer.find_by_id(session[:employer_id]).name %> 
     <%= link_to "Logout", logout_url%>
   <% elsif User.find_by_id(session[:user_id])%>
       <%= link_to "Dashboard", user_url(session[:user_id]) %> |
