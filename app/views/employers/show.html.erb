@@ -1,6 +1,11 @@
-<%= @employer.name %><br>
-<%= @employer.description %>
+<h1><%= @employer.name %></h1></br>
+<%= @employer.description %></br></br>
 
+<%@employer.job.each do |job| %>
+Job Title:<%= job.title%></br>
+Description:<%= job.description%></br></br>
+<% end %>
 
 <%= link_to 'delete', delete_url, :method => 'delete' %>
 <%= link_to 'edit', edit_url%>
+<%= link_to 'new job', new_job_url %>

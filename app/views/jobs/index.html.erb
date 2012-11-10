@@ -1,0 +1,6 @@
+<h1> Hate your job? Find a new one below</h1>
+
+<% @jobs.each do |job| %>
+ Title: <h3><%= job.title %></h3>
+ Description: <%= job.description %> </br></br>
+<% end %>

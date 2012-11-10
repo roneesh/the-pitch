@@ -11,6 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(:version => 20121110044557) do
+=======
 ActiveRecord::Schema.define(:version => 20121110044356) do
 
   create_table "attachments", :force => true do |t|
@@ -19,12 +22,23 @@ ActiveRecord::Schema.define(:version => 20121110044356) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+>>>>>>> c8c151e3405288ffdd07f86ca4d473796d351bd8
 
   create_table "employers", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "password_digest"
+    t.string   "email"
+  end
+
+  create_table "jobs", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "employer_id"
   end
 
   create_table "pitches", :force => true do |t|
