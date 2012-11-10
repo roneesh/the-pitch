@@ -1,17 +1,17 @@
 ThePitch::Application.routes.draw do
 
 get '/login' => 'sessions#new', :as => 'login'
-post '/sessions/create' => 'sessions#create'
+post '/sessions/createemployer' => 'sessions#create_employer'
 get '/logout' => 'sessions#destroy', :as => 'logout'
 
-get 'userlogin' => 'sessions#newuser', :as => 'userlogin'
+get '/userlogin' => 'sessions#newuser', :as => 'userlogin'
+post '/sessions/createuser' => 'sessions#create_user', :as => 'createuser'
 
 
-
-get '/users', controller: 'Users', action: 'index', as: 'users'
+get '/users', controller: 'Users', action: 'index', :as => 'users'
 post '/users', controller: 'Users', action: 'create'
-get '/users/new' => 'Users#new'
-get '/users/:id/edit', controller: 'Users', action: 'edit', as: 'edit_user'
+get '/users/new', controller: 'Users', action: 'new', :as => 'new_user'
+get '/users/:id/edit', controller: 'Users', action: 'edit', :as => 'edit_user'
 get '/users/:id', controller: 'Users', action: 'show', :as => 'user'
 
 put '/users/:id', controller: 'Users', action: 'update'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110044557) do
+ActiveRecord::Schema.define(:version => 20121110165825) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "pitch_id"
@@ -53,9 +53,9 @@ ActiveRecord::Schema.define(:version => 20121110044557) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "has_secure_password"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "password_digest"
   end
 
 end

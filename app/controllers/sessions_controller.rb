@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     
   end
   
-  def create
+  def create_employer
     user = Employer.find_by_email(params[:email])
     if user && user.authenticate(params[:password]) 
       session[:user_id] = user.id
@@ -20,7 +20,15 @@ class SessionsController < ApplicationController
   end
   
   def newuser
-  
+
+  end
+
+  def create_user
+    user = User.find_by_email(params[:email])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to jobs_url
+    end
   end
   
 end
