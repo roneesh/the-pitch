@@ -1,6 +1,6 @@
 <!-- Pitch form_for Partial -->
 
-<%= form_for @pitch do |f| %>
+<%= form_for @pitch, :html => { :multipart => true } do |f| %>
 
 	<%= f.label :headline %>
 	<%= f.text_field :headline %>
@@ -10,6 +10,8 @@
 
 	<%= f.label :user_id %>
 	<%= f.text_field :user_id %>
+
+  	<%= f.file_field :profilepic %>
 
 	<%= f.submit %>
 <%end%>

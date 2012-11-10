@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121110044557) do
+=======
+ActiveRecord::Schema.define(:version => 20121110044356) do
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "pitch_id"
+    t.string   "resource_url"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+>>>>>>> c8c151e3405288ffdd07f86ca4d473796d351bd8
 
   create_table "employers", :force => true do |t|
     t.string   "name"
@@ -34,8 +45,21 @@ ActiveRecord::Schema.define(:version => 20121110044557) do
     t.string   "headline"
     t.integer  "user_id"
     t.integer  "job_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "profilepic_file_name"
+    t.string   "profilepic_content_type"
+    t.integer  "profilepic_file_size"
+    t.datetime "profilepic_updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "has_secure_password"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
 end
