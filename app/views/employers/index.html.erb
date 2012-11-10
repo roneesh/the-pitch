@@ -1,3 +1,7 @@
-<% @employers.each do |employer| %>
-  <%= link_to "#{employer.name}", employer_url(employer.id) %> <br>
-<% end %>
+<div class = "recruiter_link">
+	<ul>
+	<% @employers.each do |employer| %>
+	 	<li><%= link_to "#{employer.name}", employer_url(employer.id) %></li>
+	<% end %>
+	</ul>
+</div>
