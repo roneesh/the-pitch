@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
   
-  def new
+  def landingpage
+      session[:user_id] = 1
+  end
+
+  def newemployer
     
   end
   

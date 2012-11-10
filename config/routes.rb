@@ -1,8 +1,8 @@
 ThePitch::Application.routes.draw do
 
-root :to => 'Sessions#new'
+root :to => 'Sessions#landingpage'
 
-get '/login' => 'sessions#new', :as => 'login'
+get '/employerlogin' => 'sessions#newemployer', :as => 'employerlogin'
 post '/sessions/createemployer' => 'sessions#create_employer'
 get '/logout' => 'sessions#destroy', :as => 'logout'
 
