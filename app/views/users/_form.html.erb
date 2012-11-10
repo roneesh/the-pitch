@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user do |f| %>
 
   <p><%= f.label :first_name%>
     <%= f.text_field :first_name%></p>
@@ -10,6 +10,6 @@
     <%= f.text_field :email%></p>
 
     <p><%= f.submit %>
-      <%= link_to "or Cancel", users_path %></p>
+      <%= link_to "or Cancel", users_url %></p>
 
 <% end%>
