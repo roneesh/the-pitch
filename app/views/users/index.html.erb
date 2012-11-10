@@ -1,0 +1,19 @@
+<h1>User Index (page title subject to change)</h1>
+
+<ul>
+  <% @users.each do |user_object|%>
+    <li>
+      <%= user_object.first_name%>
+      <%= user_object.last_name%>
+      <%= user_object.email%>
+      <%#= user_object.pitches%>
+      <%#= user_object.jobs%>
+      <%#= user_object.videos%>
+      <%#= user_object.otherstuff%>
+      <nav>
+        <%= link_to "Delete", user_url(user_object.id), :method => 'delete', 'confirm' => "Are you sure?"%>
+        <%= link_to "Edit", edit_user_url(user_object.id) %>
+      </nav>
+    </li>  
+  <% end%>    
+</ul>

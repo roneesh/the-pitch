@@ -39,4 +39,13 @@ ActiveRecord::Schema.define(:version => 20121110044356) do
     t.datetime "profilepic_updated_at"
   end
 
+  create_table "users", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "has_secure_password"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
 end
