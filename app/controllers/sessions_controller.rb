@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   
   def landingpage
-     #The front page of the website
+
   end
 
   def newemployer
