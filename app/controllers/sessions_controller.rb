@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   
   def landingpage
-      session[:user_id] = 1
+      session[:user_id] = user.id
   end
 
   def newemployer
