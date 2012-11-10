@@ -2,7 +2,7 @@ ThePitch::Application.routes.draw do
 
 get '/users', controller: 'Users', action: 'index', as: 'users'
   
-get '/user/new', controller: 'Users', action: 'new'
+get '/user/new', controller: 'Users', action: 'new', as: 'new_user'
   
 post '/user', controller: 'Users', action: 'create'
   
