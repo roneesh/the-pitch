@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   
   def landingpage
-      session[:user_id] = 1
+     #The front page of the website
   end
 
   def newemployer
@@ -19,8 +19,9 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    session[:user_id]=nil
-    redirect_to login_url
+    session[:user_id] = nil #KILL THIS GODDAMN THING
+    flash[:notice] = "Hey, thanks for using us, we mean it."
+    redirect_to root_url
   end
   
   def newuser
@@ -31,7 +32,11 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to jobs_url
+      redirect_to user_path(user.id)
+    else
+      flash[:message] = "Invalid login e-mail"
+      redirect_to root_url
+
     end
   end
   
