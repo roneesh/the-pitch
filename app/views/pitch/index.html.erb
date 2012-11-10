@@ -1,0 +1,14 @@
+<!-- index.html.erb -->
+
+<h1> Pitch Index </h1>
+<ul>
+<% @pitches.each do |pitch_object| %>
+	<li>
+		<b>Pitch Id: </b> <%= pitch_object.id %><br>
+		<b>Pitch Headline: </b><%= pitch_object.headline %><br>
+		<b>User ID: </b> <%= pitch_object.user_id %>
+		<b>Job ID: </b> <%= pitch_object.job_id %>
+<%= link_to 'Destroy', pitch_object, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</li>
+
+<%end%>

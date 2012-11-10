@@ -1,0 +1,15 @@
+<!-- Pitch form_for Partial -->
+
+<%= form_for @pitch do |f| %>
+
+	<%= f.label :headline %>
+	<%= f.text_field :headline %>
+	<!-- Must eventually be a collection select or auto-populate -->
+	<%= f.label :job_id %>
+	<%= f.text_field :job_id %>
+
+	<%= f.label :user_id %>
+	<%= f.text_field :user_id %>
+
+	<%= f.submit %>
+<%end%>
