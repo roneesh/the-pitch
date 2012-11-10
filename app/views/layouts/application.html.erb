@@ -8,33 +8,30 @@
 </head>
 <body>
 <nav>
-  <%= link_to "Employers", employers_url %> |
-  
-  <%= link_to "New Employer", new_employer_url %> |
-  
+  <%#= link_to "Employers", employers_url %> 
 
-  <%= link_to "Pitches", pitches_url %> |
-  
-  <%= link_to "New Pitch", new_pitch_url %> |
-
-  <%= link_to "Users", users_url %> |
-
-  <%= link_to "New Users", users_new_url %> |
-
-  <%= link_to "Jobs Listing", jobs_url %> |
-  
-  <%= link_to "New Job", new_job_url %> |
+  <%#= link_to "New Employer", new_employer_url %> 
+  <%#= link_to "Pitches", pitches_url %> 
+  <%#= link_to "Users", users_url %> 
+  <%#= link_to "New Users", users_new_url %> 
   
   <% if session[:user_id]==nil %>
-    <%= link_to "Login", root_url%> |
-  <% elsif Employer.find_by_id(session[:user_id])%>
-    Welcome back, <%= Employer.find_by_id(session[:user_id]).name %> |
+      <h3 id="slogan"> Find the person. Get the job. </h3>
+  <% elsif Employer.find_by_id(session[:user_id])%> |
+      <%= link_to "Dashboard", employer_url(session[:user_id]) %> |
+      <%= link_to "New Job", new_job_url %> |
+      <%= link_to "Jobs Listing", jobs_url %> |
+    Welcome back, <%= Employer.find_by_id(session[:user_id]).name %> 
+    <%= link_to "Logout", logout_url%>
   <% elsif User.find_by_id(session[:user_id])%>
-    Welcome back, <%= User.find_by_id(session[:user_id]).first_name %> |
-  <%end%>
+      <%= link_to "Dashboard", user_url(session[:user_id]) %> |
+      <%= link_to "Jobs Listing", jobs_url %> |
+      <%= link_to "New Pitch", new_pitch_url %> |
+      Welcome back, <%= User.find_by_id(session[:user_id]).first_name %> |
       <%= link_to "Logout", logout_url%>
-
+  <%end%>
 </nav>
+
 <%= yield %>
 
 </body>
