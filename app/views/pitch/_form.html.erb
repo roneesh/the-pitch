@@ -5,11 +5,17 @@
 	<%= f.label :headline %>
 	<%= f.text_field :headline %>
 	<!-- Must eventually be a collection select or auto-populate -->
-	<%= f.label :job_id %>
-	<%= f.text_field :job_id %>
+	<% if params[:job_id].present? && session[:user_id].present? %>
 
-	<%= f.label :user_id %>
-	<%= f.text_field :user_id %>
+		<%= hidden_field_tag :job_id, @job_id %>
+		<%= hidden_field_tag :user_id, session[:user_id] %>
+	<% else %>
+		<%= f.label :job_id %>
+		<%= f.text_field :job_id %>
+
+		<%= f.label :user_id %>
+		<%= f.text_field :user_id %>
+	<% end %>
 
   	<%= f.file_field :profilepic %>
 

@@ -9,11 +9,15 @@ class  PitchController < ApplicationController
 
   def new
   	@pitch = Pitch.new
+    @job_id = params[:job_id]
+    @sessionid = session[:user_id]
   end
 
   def create
   	@pitch = Pitch.new(params[:pitch])
-  	@pitch.save
+  	@pitch.job_id = params[:job_id]
+    @pitch.user_id = params[:user_id]
+    @pitch.save
   	redirect_to pitches_url
   end
 
