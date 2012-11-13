@@ -36,6 +36,14 @@ class  PitchController < ApplicationController
   	@pitch.destroy
   	redirect_to pitches_url
   end
+  
+  def email
+    @email = Pitch.find_by_id(params[:id]).user.email
+    @pitch = Pitch.find_by_id(params[:id])
+    EmployerMailer.coffee_email(@email).deliver
+    flash[:message] = "E-mail was sent!"
+    redirect_to pitch_url(@pitch.id)
+  end
 
 
 end

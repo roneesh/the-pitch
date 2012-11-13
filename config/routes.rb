@@ -27,7 +27,7 @@ delete '/pitches/:id' => 'Pitch#destroy'
 put '/pitches/:id' => 'Pitch#update'
 get '/pitches/:id' => 'Pitch#show', :as => 'pitch'
 get '/pitches/:id/edit' => 'Pitch#edit', :as => 'edit_pitch'
-
+get '/email/:id' => 'Pitch#email', :as => 'email'
   
 get '/employers' => 'employers#index', :as => 'employers'
 get '/employers/new' => 'employers#new', :as => 'new_employer'

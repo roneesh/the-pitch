@@ -41,4 +41,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'paperclip', '3.3.1'
 
 #TEST: For searching
-gem 'thinking-sphinx', "~> 2.0.13"
+#gem 'thinking-sphinx', "~> 2.0.13"
