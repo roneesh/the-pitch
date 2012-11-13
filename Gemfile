@@ -39,3 +39,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 #To use Paperclip for file uploading
 gem 'paperclip', '3.3.1'
+
+#TEST: For searching
+gem 'thinking-sphinx', "~> 2.0.13"

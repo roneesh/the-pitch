@@ -1,0 +1,8 @@
+module Sass::Script::Functions
+  module MyRandom
+    def random
+      rand(1.0)
+    end
+  end
+  include MyRandom
+end
