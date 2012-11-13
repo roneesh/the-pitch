@@ -7,4 +7,5 @@ class Job < ActiveRecord::Base
   def employer
     Employer.find_by_id(self.employer_id)
   end
+  
 end
