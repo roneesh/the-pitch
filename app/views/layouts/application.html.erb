@@ -17,7 +17,7 @@
   <%#= link_to "New Users", users_new_url %> 
   
   <% if session[:user_id]==nil && session[:employer_id] == nil %>
-      <h3 id="slogan"> Find the person. Get the job. </h3>
+      
   <% elsif Employer.find_by_id(session[:employer_id])%> |
       <%= link_to "Dashboard", employer_url(session[:employer_id]) %> |
       <%= link_to "New Job", new_job_url %> |

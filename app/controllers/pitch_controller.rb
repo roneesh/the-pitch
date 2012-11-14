@@ -16,10 +16,10 @@ class  PitchController < ApplicationController
   def create
   	@pitch = Pitch.new(params[:pitch])
   	@pitch.job_id = params[:job_id]
-    @pitch.user_id = params[:user_id]
+    @pitch.user_id = session[:user_id]
     @pitch.save
   	redirect_to pitches_url
-  end
+   
 
   def edit
   	@pitch = Pitch.find_by_id(params[:id])
@@ -35,6 +35,10 @@ class  PitchController < ApplicationController
   	@pitch = Pitch.find_by_id(params[:id])
   	@pitch.destroy
   	redirect_to pitches_url
+  end
+
+  def shorten
+    
   end
 
 

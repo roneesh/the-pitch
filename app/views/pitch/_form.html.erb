@@ -8,7 +8,6 @@
 	<% if params[:job_id].present? && session[:user_id].present? %>
 
 		<%= hidden_field_tag :job_id, @job_id %>
-		<%= hidden_field_tag :user_id, session[:user_id] %>
 	<% else %>
 		<%= f.label :job_id %>
 		<%= f.text_field :job_id %>

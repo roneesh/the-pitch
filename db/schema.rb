@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110165825) do
+ActiveRecord::Schema.define(:version => 20121112031613) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "pitch_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20121110165825) do
     t.string   "profilepic_content_type"
     t.integer  "profilepic_file_size"
     t.datetime "profilepic_updated_at"
+    t.string   "short_url"
   end
 
   create_table "users", :force => true do |t|
