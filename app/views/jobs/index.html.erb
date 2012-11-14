@@ -3,4 +3,5 @@
 <% @jobs.each do |job| %>
  Title: <h3><%= job.title %></h3>
  Description: <%= job.description %> </br></br>
+ <%= link_to "Details", job_url(job.id) %><br> <br>
 <% end %>

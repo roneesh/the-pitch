@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110165825) do
+ActiveRecord::Schema.define(:version => 20121114094012) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "pitch_id"
@@ -32,9 +32,10 @@ ActiveRecord::Schema.define(:version => 20121110165825) do
   create_table "jobs", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "employer_id"
+    t.string   "contact_email"
   end
 
   create_table "pitches", :force => true do |t|
@@ -47,6 +48,8 @@ ActiveRecord::Schema.define(:version => 20121110165825) do
     t.string   "profilepic_content_type"
     t.integer  "profilepic_file_size"
     t.datetime "profilepic_updated_at"
+    t.string   "short_url"
+    t.boolean  "viewed"
   end
 
   create_table "users", :force => true do |t|
@@ -56,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20121110165825) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
+    t.string   "linkedin_script"
   end
 
 end

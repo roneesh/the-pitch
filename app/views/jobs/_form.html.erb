@@ -5,8 +5,9 @@
   <%= j.label :description%>
   <%= j.text_field :description%>
   
-  <%= j.label :employer_id %>
-  <%= j.collection_select :employer_id, Employer.all, :id, :name %>
+<!--   taken out because employer_id should assign via session has -->h
+  <%#= j.label :employer_id %>
+  <%#= j.collection_select :employer_id, Employer.all, :id, :name %>
   
-  <%= j.submit "Let's make some magic!"%>
+  <%= j.submit "Create Job!"%>
 <% end %>

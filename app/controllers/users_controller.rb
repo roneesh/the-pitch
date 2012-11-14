@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+ 
+
   def index
     @users = User.all
   end
@@ -18,8 +20,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    @user.save
-    redirect_to users_path
+    if @user.save
+      GeneralMailer.user_signup_confirmation(@user).deliver
+      flash[:message] = "Thanks for signing up, a confirmation e-mail has been sent to #{@user.email}, please login."
+      redirect_to userlogin_url
+    end
   end
 
   def update

@@ -9,13 +9,15 @@ class JobsController < ApplicationController
   end
   
   def create
-    @job=Job.new params[:job]
+    @job=Job.new(params[:job])
+    @job.employer_id = session[:employer_id]
     @job.save
-    redirect_to jobs_url
+    redirect_to employer_path(@job.employer_id)
   end
   
   def show
      @job=Job.find_by_id(params[:id])
+     @pitches = Pitch.where(:job_id => @job.id)
   end
   
   def edit
@@ -31,9 +33,10 @@ class JobsController < ApplicationController
   
   def destroy
      @job=Job.find_by_id(params[:id])
+     employer = @job.employer_id
      @job.destroy
      
-     redirect_to jobs_url
+     redirect_to employer_url(employer)
   end
   
 end

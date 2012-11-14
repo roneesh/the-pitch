@@ -1,4 +1,5 @@
 class  PitchController < ApplicationController
+  
   def index
   	@pitches = Pitch.all
   end
@@ -9,11 +10,15 @@ class  PitchController < ApplicationController
 
   def new
   	@pitch = Pitch.new
+    @job_id = params[:job_id]
+    @sessionid = session[:user_id]
   end
 
   def create
   	@pitch = Pitch.new(params[:pitch])
-  	@pitch.save
+  	@pitch.job_id = params[:job_id]
+    @pitch.user_id = session[:user_id]
+    @pitch.save
   	redirect_to pitches_url
   end
 
@@ -32,6 +37,17 @@ class  PitchController < ApplicationController
   	@pitch.destroy
   	redirect_to pitches_url
   end
+  
+  def email
+    #@email = Pitch.find_by_id(params[:id]).user.email
+    @pitch = Pitch.find_by_id(params[:id])
+    GeneralMailer.coffee_email(@pitch).deliver
+    flash[:message] = "E-mail was sent!"
+    redirect_to pitch_url(@pitch.id)
+  end
 
+  def shorten
+    
+  end
 
 end

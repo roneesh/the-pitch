@@ -1,8 +1,24 @@
-<h1> Show me the job </h1>
+<h1> Job Details </h1>
 
 Title: <%= @job.title%></br>
-Description: <%= @job.description%>
-Employer_Id: <%= @job.employer.name%>
+Description: <%= @job.description%><br>
+Employer Name: <%= @job.employer.name%>
 
-<%= link_to "Edit", edit_job_url%>
-<%= link_to "Destroy ME!", destroy_job_url, :method => 'delete'%>
+<br><br>
+
+<% if session[:user_id]==nil && session[:employer_id] != nil %>
+	<b>Pitches for this job (A lookbook!):
+		<ul>
+			<% @pitches.each do |pitch_object| %>
+				<li><%= link_to pitch_object.headline, pitch_url(pitch_object.id) %>
+				</li>
+			<%end%>
+		</ul>
+	<%= link_to "Edit", edit_job_url%>
+	<%= link_to "Destroy ME!", destroy_job_url, :method => 'delete'%>
+<% else%>
+	<%= form_tag(new_pitch_url, :method => "get") do %>
+	<%= hidden_field_tag :job_id, @job.id  %>
+	<%= submit_tag "Pitch This Job"%>
+	<%end%>
+<%end%>

@@ -1,11 +1,16 @@
-<h1><%= @employer.name %></h1></br>
+<h1><%= @employer.name.pluralize %> Dashboard</h1></br>
 <%= @employer.description %></br></br>
+<h3>SESSION ID: <%= session[:employer_id] %></h3>
 
+<p><strong>Open Jobs:</strong><br>
+<ul>
 <%@employer.job.each do |job| %>
-Job Title:<%= job.title%></br>
-Description:<%= job.description%></br></br>
+	<li>
+	Job Title:<%= job.title%></br>
+	Description:<%= job.description%></br>
+	<%= link_to 'Job Details', job_url(job.id) %>
+	</li>
 <% end %>
 
-<%= link_to 'delete', delete_url, :method => 'delete' %>
-<%= link_to 'edit', edit_url%>
+<br><br><br>
 <%= link_to 'new job', new_job_url %>
