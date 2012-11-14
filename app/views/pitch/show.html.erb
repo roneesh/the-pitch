@@ -6,5 +6,7 @@
 <b> Photo: </b><br>
 <%= image_tag @pitch.profilepic.url %>
 <b> <%= link_to "Create View Link", shorten_url(@pitch.id), html_options = { :method => "post" } %>
-
-
+<br>
+<% if session[:employer_id]%>
+    Like what you see? <br> Email this candidate: <%= link_to @pitch.user.email, email_url(@pitch.id)%>
+<%end%>

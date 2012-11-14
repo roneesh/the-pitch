@@ -4,10 +4,18 @@ html {
 }
 
 
+module Sass::Script::Functions
+  module MyRandom
+    def random
+      rand(1.0)
+    end
+  end
+  include MyRandom
+end
  
 body {
 	background-color: black;
-	background-image: url("/assets/background1.jpeg");
+	background-image: url("/assets/background#{.jpeg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-position:  absolute;

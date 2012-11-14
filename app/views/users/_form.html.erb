@@ -9,13 +9,14 @@
   	<%= f.label :email%>
     <%= f.text_field :email%>
 
+    <%= f.label :linkedin_script%><br>
+    <%= f.text_area :linkedin_script, :size => '40x8' %><br>
+
     <%= f.label :password%>
     <%= f.password_field :password%>
 
    	<%= f.label :password_confirmation%>
-    <%= f.password_field :password_confirmation%>
-
-
+    <%= f.password_field :password_confirmation%><br>
 
     <p><%= f.submit %>
       <%= link_to "or Cancel", root_url %></p>
