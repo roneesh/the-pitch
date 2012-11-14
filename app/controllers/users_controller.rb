@@ -18,8 +18,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    @user.save
-    redirect_to users_path
+    if @user.save
+      GeneralMailer.user_signup_confirmation(@user).deliver
+      redirect_to users_path
+    end
   end
 
   def update

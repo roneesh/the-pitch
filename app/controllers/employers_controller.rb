@@ -10,9 +10,10 @@ class EmployersController < ApplicationController
   
   def create
     @employer = Employer.new params[:employer]
-    @employer.save
-    
-    redirect_to employers_url
+    if @employer.save
+        GeneralMailer.employer_signup_confirmation(@employer).deliver
+        redirect_to employers_url
+    end
   end
   
   def show
