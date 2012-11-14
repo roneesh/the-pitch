@@ -1,4 +1,5 @@
 class  PitchController < ApplicationController
+  
   def index
   	@pitches = Pitch.all
   end
@@ -19,7 +20,7 @@ class  PitchController < ApplicationController
     @pitch.user_id = session[:user_id]
     @pitch.save
   	redirect_to pitches_url
-   
+  end
 
   def edit
   	@pitch = Pitch.find_by_id(params[:id])
@@ -48,6 +49,5 @@ class  PitchController < ApplicationController
   def shorten
     
   end
-
 
 end

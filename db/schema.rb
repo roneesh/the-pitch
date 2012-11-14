@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20121112031613) do
-=======
 ActiveRecord::Schema.define(:version => 20121113192840) do
->>>>>>> 78ed54ed6d1c6b380aee8a293b9c01de977e2513
 
   create_table "attachments", :force => true do |t|
     t.integer  "pitch_id"
@@ -51,11 +47,8 @@ ActiveRecord::Schema.define(:version => 20121113192840) do
     t.string   "profilepic_content_type"
     t.integer  "profilepic_file_size"
     t.datetime "profilepic_updated_at"
-<<<<<<< HEAD
     t.string   "short_url"
-=======
     t.boolean  "viewed"
->>>>>>> 78ed54ed6d1c6b380aee8a293b9c01de977e2513
   end
 
   create_table "users", :force => true do |t|
