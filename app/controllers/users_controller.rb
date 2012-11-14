@@ -20,7 +20,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       GeneralMailer.user_signup_confirmation(@user).deliver
-      redirect_to users_path
+      flash[:message] = "Thanks for signing up, a confirmation e-mail has been sent to #{@user.email}, please login."
+      redirect_to userlogin_url
     end
   end
 
