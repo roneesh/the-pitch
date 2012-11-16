@@ -14,34 +14,66 @@ Pitch.destroy_all
 
 puts "All Destroyed."
 
-Employers = [
-   {name: "Trunkclub", email: "trunk@trunkclub.com", description: "Clothes 4 hackers", password: "1" }
+employers = [
+   {name: "Trunkclub", email: "trunk@trunkclub.com", description: "Clothes 4 hackers", password: "1" },
+   {name: "RubyMercs", email: "rubymercs@example.com", description: "Rubyist for hire", password: "1" },
+   {name: "A-Hoy", email: "ahoy@example.com", description: "Pirates, maybe?", password: "1" },
+   {name: "Wind Energy", email: "windenergy@example.com", description: "No more gas!", password: "1" }
   ]  
   #password_digest: "$2a$10$XXPu0Qpn21FgsXmCM9cDk.Z.RCKtGVmcEzRDc9SA4IElWegUbOBkq"
-  
-Users = [
-  {first_name: "Roneesh", last_name: "Vashisht", email: "roneesh@gmail.com", password: "1"}
+puts "Creating Employers..."
+Employer.create employers
+
+users = [
+  {first_name: "Roneesh", last_name: "Vashisht", email: "roneesh@gmail.com", password: "1"},
+  {first_name: "Joe", last_name: "Ngo", email: "joengo83@gmail.com", password: "1"},
+  {first_name: "Brett", last_name: "Hoyer", email: "jbh5079@gmail.com", password: "1"},
+  {first_name: "Kate", last_name: "Hoolihan", email: "k8hoolihan@gmail.com", password: "1"}
   ]
   #password_digest: "$2a$10$CwsLXeVcgZPAT0SYXsLv7eCbyUaQ74YcZm/Znqw8MYcH5kBF1.lg2"
 
-puts "Creating Employers and Users and generating their id's..."
-employer1 = Employer.create(Employers[0])
-employer1_id = employer1.id 
 
-user1 =  User.create(Users[0])
-user1_id = user1.id
 
-Jobs = [
-  {title: "Cheif of Procurement", description: "Buying for Trunkclub", employer_id: employer1_id}
+puts "Creating Users..."
+User.create users 
+
+
+jobs = [
+  {title: "Cheif of Procurement", description: "Buying for Trunkclub", :employer => "Trunkclub"},
+  {title: "Head Coach", description: "Manage Kobe's Ego", :employer => "RubyMercs"},
+  {title: "Gungdum", description: "Buying for Trunkclub", :employer => "A-Hoy"},
+  {title: "Cheif of Procurement", description: "Buying for Trunkclub", :employer => "Wind Energy"}
   ]
   
-job1 = Job.create(Jobs[0])
-job1_id = job1.id
+#job1 = Job.create(Jobs[0])
+#job1_id = job1.id
   
-Pitches = [
-  {headline: "I'm awesome", user_id: user1_id, job_id: job1_id}
-  ]
+# pitches = [
+#   {headline: "I'm awesome", user_id: user1_id, job_id: job1_id},
+#   {headline: "I'm just ok", user_id: user1_id, job_id: job1_id},
+#   {headline: "I'm not so great", user_id: user1_id, job_id: job1_id},
+#   {headline: "I'm overrated", user_id: user1_id, job_id: job1_id}
+#   ]
 
-Pitch.create(Pitches[0])
+# Pitch.create pitches 
+
+
+
+jobs.each do |job|
+  e = Employer.find_by_name(job[:employer])
+  Job.create :title => job[:title], :description => job[:description], :employer_id => e.id
+end
 
 puts "Created!"
+
+# movies.each do |movie|
+#   d = Director.find_by_name(movie[:director])
+#   Movie.create :title => movie[:title], :year => movie[:year], :director_id => d.id
+# end
+
+# roles.each do |role|
+#   m = Movie.find_by_title(role[:movie])
+#   a = Actor.find_by_name(role[:actor])
+#   Role.create :name => role[:name], :movie_id => m.id, :actor_id => a.id
+# end
+
