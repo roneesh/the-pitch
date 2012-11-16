@@ -1,5 +1,5 @@
 <h1> Hate your job? Find a new one below</h1>
-
+<div id='notice'><%=flash[:notice]%></div>
 <% @jobs.each do |job| %>
  Title: <h3><%= job.title %></h3>
  Description: <%= job.description %> </br></br>
