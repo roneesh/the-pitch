@@ -41,19 +41,21 @@ User.create users
 jobs = [
   {title: "Cheif of Procurement", description: "Buying for Trunkclub", :employer => "Trunkclub"},
   {title: "Head Coach", description: "Manage Kobe's Ego", :employer => "RubyMercs"},
-  {title: "Gungdum", description: "Buying for Trunkclub", :employer => "A-Hoy"},
-  {title: "Cheif of Procurement", description: "Buying for Trunkclub", :employer => "Wind Energy"}
+  {title: "Artist", description: "You tell me!", :employer => "A-Hoy"},
+  {title: "Cheif of Wind", description: "Doing dope energy things", :employer => "Wind Energy"}
   ]
   
 #job1 = Job.create(Jobs[0])
 #job1_id = job1.id
   
-# pitches = [
-#   {headline: "I'm awesome", user_id: user1_id, job_id: job1_id},
-#   {headline: "I'm just ok", user_id: user1_id, job_id: job1_id},
-#   {headline: "I'm not so great", user_id: user1_id, job_id: job1_id},
-#   {headline: "I'm overrated", user_id: user1_id, job_id: job1_id}
-#   ]
+pitches = [
+  {headline: "I'm awesome", :email => "roneesh@gmail.com", :title => "Cheif of Procurement"},
+  {headline: "I'm just ok", :email => "joengo83@gmail.com", :title => "Cheif of Procurement"},
+  {headline: "I'm not so great", :email => "jbh5079@gmail.com", :title => "Cheif of Procurement"},
+  {headline: "I'm overrated", :email => "k8hoolihan@gmail.com", :title => "Cheif of Procurement"}
+  ]
+
+
 
 # Pitch.create pitches 
 
@@ -64,6 +66,11 @@ jobs.each do |job|
   Job.create :title => job[:title], :description => job[:description], :employer_id => e.id
 end
 
+pitches.each do |pitch|
+  j = Job.find_by_title(pitch[:title])
+  u = User.find_by_email(pitch[:email])
+  Pitch.create :headline => pitch[:headline], :job_id => j.id, :user_id => u.id
+end
 puts "Created!"
 
 # movies.each do |movie|
