@@ -19,7 +19,8 @@ class  PitchController < ApplicationController
   	@pitch.job_id = params[:job_id]
     @pitch.user_id = session[:user_id]
     @pitch.save
-  	redirect_to pitches_url
+    flash[:message] = "Pitch created, access it in your Dashboard"
+  	redirect_to user_url(session[:user_id])
   end
 
   def edit
@@ -47,7 +48,9 @@ class  PitchController < ApplicationController
   end
 
   def short_url
-    @pitch = Pitch.where( :job_id => params[:jobid], :user_id => params[:userid]).first
+    
+    @pitch = Pitch.where( :user_id => params[:userid], :id => params[:pitchid]).first
+  
   end
 
 end

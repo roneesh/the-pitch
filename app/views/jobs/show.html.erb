@@ -23,7 +23,7 @@ Current Pitch Count: <%= @job.pitches.count%>
 	<%= hidden_field_tag :job_id, @job.id  %>
 	
 	  <% if @job.pitches.count >= @job.maxpitchcount %>
-	    "This job can not currently be pitched."
+	    This job can not currently be pitched.
 	  <% else %>
 	    <%= submit_tag "Pitch This Job"%>
 	  <%end%>

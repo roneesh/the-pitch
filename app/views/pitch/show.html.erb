@@ -7,8 +7,14 @@
 <%= image_tag @pitch.profilepic.url %>
 <b> <%#= link_to "Create View Link", shorten_url(@pitch.id), html_options = { :method => "post" } %>
 <br>
-<b> Share this Pitch: </b> <br>
-<%= @pitch.url_string %>
+
+<% if session[:user_id] && @pitch.job_id.nil? %>
+  <b> Share this Pitch: </b> <br>
+  <%= @pitch.url_string %>
+<%end%>
+
+
 <% if session[:employer_id]%>
-    Like what you see? <br> Email this candidate: <%= link_to @pitch.user.email, email_url(@pitch.id)%>
+    <b>Like what you see? </b>
+    <br> Email this candidate: <%= link_to @pitch.user.email, email_url(@pitch.id)%>
 <%end%>
