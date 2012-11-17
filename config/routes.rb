@@ -29,6 +29,8 @@ get '/pitches/:id' => 'Pitch#show', :as => 'pitch'
 get '/pitches/:id/edit' => 'Pitch#edit', :as => 'edit_pitch'
 post '/shorten/:id' => 'Pitch#shorten', :as => 'shorten'
 get '/email/:id' => 'Pitch#email', :as => 'email'
+get '/*jobid/*userid/*firstname/pitch-for/*company' => 'Pitch#short_url'
+
 
 get '/employers' => 'employers#index', :as => 'employers'
 get '/employers/new' => 'employers#new', :as => 'new_employer'

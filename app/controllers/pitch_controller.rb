@@ -50,8 +50,8 @@ class  PitchController < ApplicationController
     redirect_to pitch_url(@pitch.id)
   end
 
-  def shorten
-    
+  def short_url
+    @pitch = Pitch.where( :job_id => params[:jobid], :user_id => params[:userid]).first
   end
 
 end
