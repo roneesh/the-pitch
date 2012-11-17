@@ -30,7 +30,6 @@ users = [
   {first_name: "Brett", last_name: "Hoyer", email: "jbh5079@gmail.com", password: "1"},
   {first_name: "Kate", last_name: "Hoolihan", email: "k8hoolihan@gmail.com", password: "1"}
   ]
-  #password_digest: "$2a$10$CwsLXeVcgZPAT0SYXsLv7eCbyUaQ74YcZm/Znqw8MYcH5kBF1.lg2"
 
 
 
