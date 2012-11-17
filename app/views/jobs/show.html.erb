@@ -1,8 +1,10 @@
 <h1> Job Details </h1>
-
+<%= flash[:notice] %>
 Title: <%= @job.title%></br>
 Description: <%= @job.description%><br>
-Employer Name: <%= @job.employer.name%>
+Employer Name: <%= @job.employer.name%><br>
+Maximum Pitches Allowed: <%= @job.maxpitchcount%><br>
+Current Pitch Count: <%= @job.pitches.count%>
 
 <br><br>
 
@@ -19,6 +21,11 @@ Employer Name: <%= @job.employer.name%>
 <% else%>
 	<%= form_tag(new_pitch_url, :method => "get") do %>
 	<%= hidden_field_tag :job_id, @job.id  %>
-	<%= submit_tag "Pitch This Job"%>
+	
+	  <% if @job.pitches.count >= @job.maxpitchcount %>
+	    "This job can not currently be pitched."
+	  <% else %>
+	    <%= submit_tag "Pitch This Job"%>
+	  <%end%>
 	<%end%>
 <%end%>

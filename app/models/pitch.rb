@@ -3,15 +3,13 @@ class Pitch < ActiveRecord::Base
 
   has_attached_file :profilepic
   
-  
   belongs_to :job
-  belongs_to :user
+  belongs_to :user  
+  
+  
   
   def url_string
-    return  "localhost:3000/#{self.job_id}/#{self.user_id}/#{self.user.first_name}/pitch-for/#{self.job.employer.name}"
-  
-  #/*jobid/*userid/*firstname/pitch-for/*company'
-  
-  end
+    return          "localhost:3000/#{self.job_id}/#{self.user_id}/#{self.user.first_name}/pitch-for/#{self.job.employer.name}"
+    end
 
 end

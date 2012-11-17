@@ -8,7 +8,7 @@
 <b> <%#= link_to "Create View Link", shorten_url(@pitch.id), html_options = { :method => "post" } %>
 <br>
 <b> Share this Pitch: </b> <br>
-<%= @pitch.url_string%>
+<%= @pitch.url_string %>
 <% if session[:employer_id]%>
     Like what you see? <br> Email this candidate: <%= link_to @pitch.user.email, email_url(@pitch.id)%>
 <%end%>

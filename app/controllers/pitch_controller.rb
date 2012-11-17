@@ -12,10 +12,6 @@ class  PitchController < ApplicationController
   	@pitch = Pitch.new
     @job_id = params[:job_id]
     @sessionid = session[:user_id]
-    if Pitch.count >= 1  
-      redirect_to jobs_url
-      flash[:notice] = "Sorry, pitch limit has been reached for this job! Here are some more:"
-    end
   end
 
   def create
