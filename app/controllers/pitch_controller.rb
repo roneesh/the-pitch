@@ -21,6 +21,9 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
   def new
   	@pitch = Pitch.new
     @job_id = params[:job_id]
+    if @job_id == nil
+      flash[:message] = "Current Pitch will not be linked to a job, the only way to have someone view it will be to send them the unique view link at the bottom of the Pitch."
+    end
   end
 
   def create

@@ -6,6 +6,8 @@
   <%= @user.email%>  
 </p>
 
+<p><strong><%= link_to "Edit User Information", edit_user_url(@user.id) %></strong><br></p>
+
 <p><strong>Existing Pitches:</strong><br>
   <ul>
   <% @user.pitches.each do |pitch_object| %>
