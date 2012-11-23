@@ -7,21 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h3> <%= flash[:message] %>
+  <div class="notice">
+    <h3> <%= flash[:message] %> </h3>
+  </div>
 
-  <%#= link_to "Employers", employers_url %> 
-
-  <%#= link_to "New Employer", new_employer_url %> 
-  <%#= link_to "Pitches", pitches_url %> 
-  <%#= link_to "Users", users_url %> 
-  <%#= link_to "New Users", users_new_url %> 
 <div class="container">
 
 
 
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="#">ThePitch</a>
+    <a class="brand" href="<%= root_url %>">ThePitch</a>
       
     <ul class="nav">
       <% if session[:user_id]==nil && session[:employer_id] == nil %>
