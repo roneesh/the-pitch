@@ -1,6 +1,6 @@
-<h1>Edit User <%= @user.id %> - <%= @user.first_name %></h1>
+<h1>Edit User <%= @user.first_name %></h1>
 
-<%= form_for(@user, :url => "/user/#{@user.id}") do |f| %>
+<%= form_for(@user, :url => "/users/#{@user.id}") do |f| %>
 
 	<%= f.label :first_name%>
   	<%= f.text_field :first_name%>
@@ -12,6 +12,6 @@
     <%= f.text_field :email%>
 
    	<%= f.submit %>
-    <%= link_to "or Cancel", users_path %>
+    <%= link_to "or Cancel", user_url(@user.id) %>
 
 <% end%>
