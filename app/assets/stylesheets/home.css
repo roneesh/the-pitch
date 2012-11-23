@@ -1,0 +1,18 @@
+body {
+	/*background-color: black;*/
+}
+.row-fluid {
+	background-color: red;
+	background-image: url("/assets/background6.jpeg");
+}
+
+.sidebar_content {
+	background-color: white
+
+}
+
+.content {
+	background-color: green;
+	
+}
+

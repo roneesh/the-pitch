@@ -48,6 +48,11 @@ get '/jobs/:id/edit' => 'jobs#edit', :as => 'edit_job'
 put '/jobs/:id' => 'jobs#update', :as => 'update_job'
 delete '/jobs/:id' => 'jobs#destroy', :as => 'destroy_job'
 
+
+
+get "/mockup/home" => 'mockup#home'
+
+
 end
 
 

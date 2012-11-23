@@ -1,0 +1,232 @@
+html {   
+	padding: 0px;
+	margin: 0px;
+}
+
+
+ 
+body {
+	background-color: black;
+	/*background-image: url("/assets/background6.jpeg");*/
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position:  absolute;
+	float: center;
+	background-size: cover;
+	font-size: 20px;
+	font-family: 'Montserrat Alternates', sans-serif;
+	color: white;
+	padding: 0px;
+	margin: 0px;
+	height: 100%;
+}
+
+.title_bar {
+	margin: 0px 100px 0px 100px;
+	color: #C7560A;
+	background-color: rgba(0, 0, 0, 0.75);
+	min-width: 850px;
+	/* -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+*/
+}
+
+.job_search {
+	margin: 17% 100px 0px 100px;
+
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.75);
+	min-width: 850px;
+	/*height: 50px;*/
+	vertical-align: center;
+	text-align: center;
+
+	/* -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+*/
+}
+
+.content {
+	margin: 0px 100px 0px 100px;
+	padding: 5px;
+	background-color: black;
+	height: 200px;
+	opacity:0.8;
+
+	 -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.search_results {
+	margin:2px 100px 0px 100px;
+	min-width: 840px;
+	padding: 5px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.75);
+	height: 100%;
+	font-size: 14px;
+
+	/* -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+*/
+}
+.search_results h2 {
+	padding-left: 20px;
+}
+
+.job_search_results {
+	margin: 2px 100px 0px 100px;
+	min-width: 850px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.75);
+	vertical-align: center;
+	text-align: center;
+	/* -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+*/
+}
+
+.result_title {
+	margin: 0px 100px 0px 100px;
+	padding: 5px;
+	color: black;
+	background-color: #ff7400;
+	opacity: 0.6;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 18px;
+	padding-right: 18px;	
+
+}
+
+.jobdesc_table {
+style="background-color: rgba(0, 0, 0, 0) !important;"
+}
+
+tbody tr:nth-child(odd) td {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+tbody { width: 100%;}
+
+table { width:100%;
+
+	 /*-moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;}
+*/
+div#parent_div {display: table;}
+div#child {display: table;} }
+div#opacity {display: table;}
+
+/*a:link {
+	text-decoration:none; 
+	color: #ff7400; 
+	font-weight: bold; 
+
+	}
+
+a:visited {
+	text-decoration:none; 
+	color: #ff7400;
+	}
+
+a:hover {
+	text-decoration: underline; 
+	color: FF7400; 
+	/*background-color: #FF7400; 
+	*/
+	}
+
+a:active {
+	text-decoration:none; 
+	color: ##FF7400;}
+
+*/
+.job_description {
+	margin: 2px 100px 0px 100px;
+	padding-top: 25px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-bottom: 25px;
+	min-width: 800px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.75);
+	height: 100%;
+	font-size: 14px;
+
+.job_description a:link {
+		text-decoration:none; 
+		color: #ff7400; 
+		font-weight: bold;
+		font-size: 14px !important; 
+		}
+
+.job_description a:visited {
+		text-decoration:none; 
+		color: #ff7400;
+		font-size: 14px !important; 
+		}
+
+.job_description a:hover {
+		text-decoration: underline; 
+		color: FF7400; 
+		font-size: 14px !important; 
+		background-color: #FF7400; 
+		
+		}
+
+.job_description a:active {
+		text-decoration:none; 
+		color: ##FF7400;
+		font-size: 14px !important; 
+}
+
+.recruiter_link {
+	opacity: 0;
+	text-align: center;
+	bottom: auto;
+	margin: 25px 100px 0px 100px;
+	background-color: yellow;
+	 -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.recruiter_search {
+	margin: 25px 100px 0px 100px;
+	padding: 5px;
+	color: white;
+	background-color: yellow;
+	height: 100%;
+	opacity:0.8;
+
+
+	 -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
+
+#leftcolumn { width: 275px; float: left}
+#rightcolumn { width: 525px; float: right}
+.clear { clear: both;}
+
