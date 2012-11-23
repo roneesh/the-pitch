@@ -1,4 +1,14 @@
 class  PitchController < ApplicationController
+
+before_filter :ensure_logged_in, except: [:short_url]
+before_filter :ensure_correct_user_id, only: [:show, :edit]
+
+  def ensure_correct_user_id
+    if session[:user_id] != Pitch.find_by_id(params[:id]).user_id
+      flash[:message] = "You are not authorized to see/edit/delete any other User's user information."
+      redirect_to user_url(session[:user_id])
+    end
+  end
   
   def index
   	@pitches = Pitch.all
@@ -11,7 +21,6 @@ class  PitchController < ApplicationController
   def new
   	@pitch = Pitch.new
     @job_id = params[:job_id]
-    @sessionid = session[:user_id]
   end
 
   def create
@@ -36,7 +45,7 @@ class  PitchController < ApplicationController
   def destroy
   	@pitch = Pitch.find_by_id(params[:id])
   	@pitch.destroy
-  	redirect_to pitches_url
+  	redirect_to user_url(session[:user_id])
   end
   
   def email

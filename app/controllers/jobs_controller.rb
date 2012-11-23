@@ -1,5 +1,8 @@
 class JobsController < ApplicationController
   
+  before_filter :ensure_logged_in
+
+
   def index
     @jobs=Job.all
   end

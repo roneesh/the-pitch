@@ -1,6 +1,23 @@
 class UsersController < ApplicationController
 
- 
+ before_filter :ensure_logged_in
+ before_filter :ensure_correct_user_type
+ before_filter :ensure_correct_user_id, only: [:show, :edit]
+
+  def ensure_correct_user_type
+    if session[:employer_id]
+      flash[:message] = "Employers can not view any User pages"
+      redirect_to user_url(session[:user_id])
+    end
+  end
+
+  def ensure_correct_user_id
+    if session[:user_id] != params[:id].to_i
+      flash[:message] = "You are not authorized to see/edit/delete any other User's user information."
+      redirect_to user_url(session[:user_id])
+      return
+    end
+  end
 
   def index
     @users = User.all

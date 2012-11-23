@@ -1,5 +1,16 @@
 class EmployersController < ApplicationController
   
+  before_filter :ensure_logged_in
+  before_filter :ensure_correct_user_type
+
+  def ensure_correct_user_type
+    if session[:user_id]
+      flash[:message] = "Users are not allowed to see any Employer pages."
+      redirect_to user_url(session[:user_id])
+    end
+  end
+
+  
   def index
     @employers = Employer.all
   end
