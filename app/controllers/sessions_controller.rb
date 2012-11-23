@@ -1,7 +1,13 @@
 class SessionsController < ApplicationController
   
   def landingpage
+      if session[:user_id]
+        redirect_to user_url(session[:user_id])
+      end
 
+      if session[:employer_id]
+        redirect_to employer_url(session[:employer_id])
+      end
   end
 
   def newemployer

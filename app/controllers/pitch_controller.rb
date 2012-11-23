@@ -30,9 +30,12 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
   	@pitch = Pitch.new(params[:pitch])
   	@pitch.job_id = params[:job_id]
     @pitch.user_id = session[:user_id]
-    @pitch.save
-    flash[:message] = "Pitch created, access it in your Dashboard"
-  	redirect_to user_url(session[:user_id])
+    if @pitch.save
+      flash[:message] = "Pitch created, access it in your Dashboard"
+  	  redirect_to user_url(session[:user_id])
+    else 
+      render 'new'
+    end
   end
 
   def edit
