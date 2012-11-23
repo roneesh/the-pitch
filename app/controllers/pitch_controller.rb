@@ -1,6 +1,6 @@
 class  PitchController < ApplicationController
 
-before_filter :ensure_logged_in
+before_filter :ensure_logged_in, except: [:short_url]
 before_filter :ensure_correct_user_id, only: [:show, :edit]
 
   def ensure_correct_user_id
@@ -21,7 +21,6 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
   def new
   	@pitch = Pitch.new
     @job_id = params[:job_id]
-    @sessionid = session[:user_id]
   end
 
   def create
@@ -46,7 +45,7 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
   def destroy
   	@pitch = Pitch.find_by_id(params[:id])
   	@pitch.destroy
-  	redirect_to pitches_url
+  	redirect_to user_url(session[:user_id])
   end
   
   def email
