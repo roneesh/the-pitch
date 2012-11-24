@@ -23,8 +23,9 @@ class EmployersController < ApplicationController
     @employer = Employer.new params[:employer]
     if @employer.save
         GeneralMailer.employer_signup_confirmation(@employer).deliver
-        flash[:message] = "Thanks for signing up, a confirmation e-mail has been sent to #{@employer.email}, please login."
-        redirect_to employerlogin_url
+        flash[:message] = "Thanks for signing up, a confirmation e-mail has been sent to #{@employer.email}."
+        session[:employer_id]=@employer.id
+        redirect_to employer_url(session[:employer_id])
     end
   end
   
