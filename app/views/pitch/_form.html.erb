@@ -28,9 +28,15 @@
 		<%#= f.label :user_id %>
 		<%#= f.text_field :user_id %>
 	<% end %>
+	<%= f.label :avatar  %>
+  	<%= f.file_field :avatar %>
 
-  	<%= f.file_field :profilepic %>
+  	<% if @pitch.avatar.present? %>
+  	<%= f.label :remove_avatar, "Chunk image" %>
+  	<%= f.check_box :remove_avatar %>
 
+  	<%end%>
+  	<br><br><br>
 	<%= f.submit %>
 <%end%>
 

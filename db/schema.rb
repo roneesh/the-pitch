@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117024503) do
+ActiveRecord::Schema.define(:version => 20121124002826) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "pitch_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20121117024503) do
     t.string   "short_url"
     t.boolean  "viewed"
     t.string   "url_string"
+    t.string   "avatar"
   end
 
   create_table "users", :force => true do |t|
