@@ -1,25 +1,42 @@
-<p><strong>User Name:</strong><br>
-  <%= @user.first_name %> <%= @user.last_name%>  
-</p>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4">
+      <p><strong>User Name:</strong>
+        <%= @user.first_name %> <%= @user.last_name%>  
+      </p>
+    </div>
+    <div class="span4">
+      <p><strong>Email:</strong>
+        <%= @user.email%>   
+      </p>
+    </div>
+    <div class="span4">
+      <p><strong><%= link_to "Edit User Information", edit_user_url(@user.id) %></strong></p>
+    </div>
+  </div>
 
-<p><strong>Contact Info:</strong><br>
-  <%= @user.email%>  
-</p>
-
-<p><strong><%= link_to "Edit User Information", edit_user_url(@user.id) %></strong><br></p>
-
-<p><strong>Existing Pitches:</strong><br>
-  <ul>
-  <% @user.pitches.each do |pitch_object| %>
-  		<li> <%= link_to pitch_object.headline, pitch_url(pitch_object.id) %> |
-  			 <%= link_to "Edit", edit_pitch_url(pitch_object.id) %> | 
-  			 <%= link_to "Delete", pitch_url(pitch_object.id), html_options = {method: 'delete', confirm: "Are you sure? Deleted Pitches can not be retrieved."} %>
-  		</li>
-  <%end%>
-</ul>
-</p>
-
+  <div class="row-fluid">
+    <div class="span8 offset2">
+        <div class="info">
+         
+          <table class="table table-hover">
+           <th>Existing Pitches</th>
+          <% @user.pitches.each do |pitch_object| %>
+          <tr>
+    		    <td><%= link_to pitch_object.headline, pitch_url(pitch_object.id) %></td>
+    			   <td><%= link_to "Edit", edit_pitch_url(pitch_object.id) %></td>
+    			   <td><%= link_to "Delete", pitch_url(pitch_object.id), html_options = {method: 'delete', confirm: "Are you sure? Deleted Pitches can not be retrieved."} %></td>
+          </tr>
+          <%end%>
+          
+          </table>
+        </div>
+    </div>
+  </div>
+</div>
 
 <p><strong>Other Stuff:</strong><br>
   Insert embedded ruby for Other Stuff once we're linked up
 </p>
+
+
