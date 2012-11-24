@@ -52,6 +52,7 @@ h1 {
     -khtml-border-radius: 5px;
     border-radius: 5px;
     text-align: center;
+    font-family: Helvetica;
 }
 
 .info {
@@ -82,7 +83,7 @@ table {
 	font-size: 24px;
 }
 
-.span6 .offset3 .well .user_form {
+a:visited, a:active, .user_form {
 	color: black;
 	font-family: 'Montserrat Alternates', sans-serif;
 }
@@ -93,18 +94,14 @@ table {
 	background-size: cover;
 }
 
-#slogan {
+#slogan, .title {
 	color: white;
 }
 
-.table-hover {
-	color: white;
-}
-
-.title {
-	color: white;
-}
-
-.user_form a:link a:active a:visited{
-	color: white;
+.jumbotron, .marketing {
+	background-color: white;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
 }

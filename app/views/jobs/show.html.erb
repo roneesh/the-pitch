@@ -1,9 +1,12 @@
 <h1> Job Details </h1>
 <%= flash[:notice] %>
-Title: <%= @job.title%></br>
-Description: <%= @job.description%><br>
-Employer Name: <%= @job.employer.name%><br>
-Maximum Pitches Allowed: <%= @job.maxpitchcount%><br>
+
+<div class="container">
+	<div class = "row-fluid span 12">
+Title: <%= @job.title%></div>
+Description: <%= @job.description%>
+Employer Name: <%= @job.employer.name%>
+Maximum Pitches Allowed: <%= @job.maxpitchcount%>
 Current Pitch Count: <%= @job.pitches.count%>
 
 <br><br>
@@ -29,6 +32,8 @@ Current Pitch Count: <%= @job.pitches.count%>
 	  <%end%>
 	<%end%>
 <%end%>
+
+</div>
 
 
 
