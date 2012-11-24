@@ -1,13 +1,13 @@
-html {   
+/*html {   
 	padding: 0px;
 	margin: 0px;
-}
+}*/
 
 
  
-body {
+/*body {
 	background-color: black;
-	/*background-image: url("/assets/background6.jpeg");*/
+	background-image: url("/assets/background6.jpeg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-position:  absolute;
@@ -19,21 +19,21 @@ body {
 	padding: 0px;
 	margin: 0px;
 	height: 100%;
-}
-
+}*/
+/*
 .title_bar {
 	margin: 0px 100px 0px 100px;
 	color: #C7560A;
 	background-color: rgba(0, 0, 0, 0.75);
 	min-width: 850px;
-	/* -moz-border-radius: 20px;
+	 -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     -khtml-border-radius: 20px;
     border-radius: 20px;
-*/
-}
- 
-.job_search {
+
+}*/
+
+/*.job_search {
 	margin: 17% 100px 0px 100px;
 
 	padding-top: 20px;
@@ -41,18 +41,18 @@ body {
 	color: white;
 	background-color: rgba(0, 0, 0, 0.75);
 	min-width: 850px;
-	/*height: 50px;*/
+	height: 50px;
 	vertical-align: center;
 	text-align: center;
 
-	/* -moz-border-radius: 20px;
+	 -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     -khtml-border-radius: 20px;
     border-radius: 20px;
-*/
-}
 
-.content {
+}*/
+
+/*.content {
 	margin: 0px 100px 0px 100px;
 	padding: 5px;
 	background-color: black;
@@ -63,9 +63,9 @@ body {
     -webkit-border-radius: 20px;
     -khtml-border-radius: 20px;
     border-radius: 20px;
-}
+}*/
 
-.search_results {
+/*.search_results {
 	margin:2px 100px 0px 100px;
 	min-width: 840px;
 	padding: 5px;
@@ -74,17 +74,17 @@ body {
 	height: 100%;
 	font-size: 14px;
 
-	/* -moz-border-radius: 20px;
+	 -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     -khtml-border-radius: 20px;
     border-radius: 20px;
-*/
+
 }
-.search_results h2 {
+*//*.search_results h2 {
 	padding-left: 20px;
 }
-
-.job_search_results {
+*/
+/*.job_search_results {
 	margin: 2px 100px 0px 100px;
 	min-width: 850px;
 	padding-top: 20px;
@@ -93,48 +93,48 @@ body {
 	background-color: rgba(0, 0, 0, 0.75);
 	vertical-align: center;
 	text-align: center;
-	/* -moz-border-radius: 20px;
+	 -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     -khtml-border-radius: 20px;
     border-radius: 20px;
-*/
-}
 
-.result_title {
+}*/
+
+/*.result_title {
 	margin: 0px 100px 0px 100px;
 	padding: 5px;
 	color: black;
 	background-color: #ff7400;
 	opacity: 0.6;
-}
+}*/
 
-ul {
+/*ul {
 	list-style-type: none;
 	padding-left: 18px;
 	padding-right: 18px;	
 
-}
+}*/
 
-.jobdesc_table {
+/*.jobdesc_table {
 style="background-color: rgba(0, 0, 0, 0) !important;"
-}
+}*/
 
-tbody tr:nth-child(odd) td {
+/*tbody tr:nth-child(odd) td {
   background-color: rgba(0, 0, 0, 0.5);
-}
+}*/
 
-tbody { width: 100%;}
+/*tbody { width: 100%;}
 
-table { width:100%;
+table { width:100%;*/
 
 	 /*-moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     -khtml-border-radius: 20px;
     border-radius: 20px;}
 */
-div#parent_div {display: table;}
+/*div#parent_div {display: table;}
 div#child {display: table;} }
-div#opacity {display: table;}
+div#opacity {display: table;}*/
 
 /*a:link {
 	text-decoration:none; 
@@ -155,11 +155,11 @@ a:hover {
 	*/
 	}
 
-a:active {
+/*a:active {
 	text-decoration:none; 
-	color: ##FF7400;}
+	color: ##FF7400;}*/
 
-*/
+/*
 .job_description {
 	margin: 2px 100px 0px 100px;
 	padding-top: 25px;
@@ -170,36 +170,36 @@ a:active {
 	color: white;
 	background-color: rgba(0, 0, 0, 0.75);
 	height: 100%;
-	font-size: 14px;
+	font-size: 14px;*/
 
-.job_description a:link {
+/*.job_description a:link {
 		text-decoration:none; 
 		color: #ff7400; 
 		font-weight: bold;
 		font-size: 14px !important; 
-		}
-
+		}*/
+/*
 .job_description a:visited {
 		text-decoration:none; 
 		color: #ff7400;
 		font-size: 14px !important; 
-		}
+		}*/
 
-.job_description a:hover {
+/*.job_description a:hover {
 		text-decoration: underline; 
 		color: FF7400; 
 		font-size: 14px !important; 
 		background-color: #FF7400; 
 		
-		}
+		}*/
 
-.job_description a:active {
+/*.job_description a:active {
 		text-decoration:none; 
 		color: ##FF7400;
 		font-size: 14px !important; 
-}
+}*/
 
-.recruiter_link {
+/*.recruiter_link {
 	opacity: 0;
 	text-align: center;
 	bottom: auto;
@@ -209,9 +209,9 @@ a:active {
     -webkit-border-radius: 20px;
     -khtml-border-radius: 20px;
     border-radius: 20px;
-}
+}*/
 
-.recruiter_search {
+/*.recruiter_search {
 	margin: 25px 100px 0px 100px;
 	padding: 5px;
 	color: white;
@@ -224,9 +224,9 @@ a:active {
     -webkit-border-radius: 20px;
     -khtml-border-radius: 20px;
     border-radius: 20px;
-}
+}*/
 
-#leftcolumn { width: 275px; float: left}
+/*#leftcolumn { width: 275px; float: left}
 #rightcolumn { width: 525px; float: right}
-.clear { clear: both;}
+.clear { clear: both;}*/
 

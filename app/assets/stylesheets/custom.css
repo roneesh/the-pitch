@@ -15,7 +15,6 @@ body {
 	background-size: cover;
 	font-size: 20px;
 	font-family: 'Montserrat Alternates', sans-serif;
-	color: white;
 	padding: 0px;
 	margin: 0px;
 	height: 100%;
@@ -25,8 +24,8 @@ body {
 a:link {
 	text-decoration:none; 
 	color: #ff7400; 
-	font-weight: bold; 
-
+	font-weight: normal; 
+	font-family: 'Montserrat Alternates', sans-serif;
 	}
 
 a:visited {
@@ -59,7 +58,9 @@ h1 {
 	background-color: white;
 }
 
-
+h1 {
+	font-family: 'Montserrat Alternates', sans-serif;
+}
 
 table {
 	background-color: gray;
@@ -84,4 +85,15 @@ table {
 .btn-group btn-group-vertical btn-custom {
 	
 	text-align: right;
+}
+
+.span6 .offset3 .well .user_form {
+	color: black;
+	font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.right_sidebar {
+	background-image: url("/assets/background2.jpeg");
+	height: 400px;
+	background-size: cover;
 }

@@ -1,25 +1,33 @@
-<%= form_for @user do |f| %>
 
+<div class="row-fluid">
+  <div class="span5 well user_form">
+<%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
+  
 	<%= f.label :first_name%>
-    <%= f.text_field :first_name%>
+  <%= f.text_field :first_name, :class => "span12"%>
     
 	<%= f.label :last_name%>
-    <%= f.text_field :last_name%>
+  <%= f.text_field :last_name, :class => "span12"%>
 
-  	<%= f.label :email%>
-    <%= f.text_field :email%>
+	<%= f.label :email%>
+  <%= f.text_field :email, :class => "span12"%>
 
-    <%= f.label :linkedin_script%><br>
-    <%= f.text_area :linkedin_script, :size => '40x8' %><br>
+  <%= f.label :linkedin_script%>
+  <%= f.text_area :linkedin_script, :class => "span12", :size => '40x8' %>
 
-    <%= f.label :password%>
-    <%= f.password_field :password%>
+  <%= f.label :password%>
+  <%= f.password_field :password, :class => "span12"%>
 
-   	<%= f.label :password_confirmation%>
-    <%= f.password_field :password_confirmation%><br>
+ 	<%= f.label :password_confirmation%>
+  <%= f.password_field :password_confirmation, :class => "span12"%>
 
-    <p><%= f.submit %>
-      <%= link_to "or Cancel", root_url %></p>
-
-
+  <%= f.submit %>
+  <%= link_to "or Cancel", root_url %>
+    
 <% end%>
+  </div>
+
+  <div class="right_sidebar span7">
+
+  </div>
+</div>

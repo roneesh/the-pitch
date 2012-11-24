@@ -10,11 +10,11 @@
 </head>
 <body>
 
-  
+
   <%if flash[:message]%>
-    <div class="alert alert-error">
-      <%= flash[:message] %>
-    </div>
+  <div class="alert alert-error">
+    <%= flash[:message] %>
+  </div>
   <%end%>
 
 <div class="container">
@@ -27,16 +27,18 @@
       
     <ul class="nav">
       <% if session[:user_id]==nil && session[:employer_id] == nil %>
+      
       <% elsif Employer.find_by_id(session[:employer_id])%>
-      <li class="active"><%= link_to "Dashboard", employer_url(session[:employer_id]) %></li>
-      <li class="divider-vertical"><%= link_to "New Job", new_job_url %></li>
-      <li class="divider-vertical"><%= link_to "Jobs Listing", jobs_url %></li>
-      <li class="divider-vertical"><%= link_to "Logout", logout_url%></li>
+        <li class="divider-vertical"><%= link_to "Dashboard", employer_url(session[:employer_id]) %></li>
+        <li class="divider-vertical"><%= link_to "New Job", new_job_url %></li>
+        <li class="divider-vertical"><%= link_to "Jobs Listing", jobs_url %></li>
+        <li class="divider-vertical"><%= link_to "Logout", logout_url%></li>
+      
       <% elsif User.find_by_id(session[:user_id])%>
-      <li class="divider-vertical"><%= link_to "Dashboard", user_url(session[:user_id]) %></li>
-      <li class="divider-vertical"><%= link_to "Jobs Listing", jobs_url %></li>
-      <li class="divider-vertical"><%= link_to "New Pitch", new_pitch_url %></li>
-      <li class="divider-vertical"><%= link_to "Logout", logout_url%></li>
+        <li class="divider-vertical"><%= link_to "Dashboard", user_url(session[:user_id]) %></li>
+        <li class="divider-vertical"><%= link_to "Jobs Listing", jobs_url %></li>
+        <li class="divider-vertical"><%= link_to "New Pitch", new_pitch_url %></li>
+        <li class="divider-vertical"><%= link_to "Logout", logout_url%></li>
       <%end%>
     </ul>
 

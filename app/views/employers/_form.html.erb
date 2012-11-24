@@ -1,21 +1,30 @@
-<%= form_for @employer do |e| %>
+<div class="row-fluid">
+  <div class="span5 well user_form">
+	<%= form_for @employer, :html => {:class => "form-horizontal"} do |e| %>
+ 	<fieldset>
+		<%= e.label :name %>
+		<%= e.text_field :name, :class => "span12" %>
 
-<%= e.label :name %>
-<%= e.text_field :name %>
+		<%= e.label :email %>
+		<%= e.text_field :email, :class => "span12" %>
 
-<%= e.label :email %>
-<%= e.text_field :email %>
+		<%= e.label :description %>
+		<%= e.text_field :description, :class => "span12" %>
 
-<%= e.label :description %>
-<%= e.text_field :description %>
+		<%= e.label :password %>
+		<%= e.password_field :password, :class => "span12"%>
 
-<%= e.label :password %>
-<%= e.password_field :password%>
-
-<%= e.label :password_confirmation %>
-<%= e.password_field :password_confirmation%>
+		<%= e.label :password_confirmation %>
+		<%= e.password_field :password_confirmation, :class => "span12"%>
 
 
-<%= e.submit "Submit"%>
-<%= link_to "or Cancel", root_url %>
-<% end %>
+		<%= e.submit "Submit"%>
+		<%= link_to "or Cancel", root_url %>
+	</fieldset>
+	<% end %>
+  </div>
+
+  <div class="right_sidebar span7">
+
+  </div>
+</div>
