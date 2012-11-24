@@ -1,7 +1,6 @@
 
 <h1> A Pitch From <%=@pitch.user.first_name %></h1>
-<b>Pitch Headline:</b> <%= @pitch.headline %><br>
-<b>User ID:</b> <%= @pitch.user_id %><br>
+<b>Pitch Headline: <%= @pitch.headline %></b><br>
 <% if @pitch.job_id != nil %>
 <b>Job ID:</b> <%= link_to @pitch.job_id, job_path(@pitch.job_id) %><br>
 <%end%>
