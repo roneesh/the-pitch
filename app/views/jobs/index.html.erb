@@ -5,7 +5,7 @@
 	<% @jobs.each do |job| %>
 		<tr>
 		<td>	
-		 <ul>Title:<%= job.title %>|
+		 <ul>Title:<%= job.title %>  |
 		 <%= link_to "Details", job_url(job.id) %></ul>
 		 <ul>Description: <%= job.description %> <ul>
 		</td>
