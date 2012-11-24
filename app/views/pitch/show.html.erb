@@ -9,6 +9,10 @@
 <b> <%#= link_to "Create View Link", shorten_url(@pitch.id), html_options = { :method => "post" } %>
 <br>
 
+<b> Resume: </b><br>
+<%= image_tag @pitch.resume_url.to_s %>
+<br>
+
 <% if session[:user_id] && @pitch.job_id.nil? %>
   <b> Share this Pitch: </b> <br>
   <%= @pitch.url_string %>

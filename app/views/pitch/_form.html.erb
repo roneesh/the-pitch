@@ -34,8 +34,16 @@
   	<% if @pitch.avatar.present? %>
   	<%= f.label :remove_avatar, "Chunk image" %>
   	<%= f.check_box :remove_avatar %>
-
   	<%end%>
+
+  	<%= f.label :resume %>
+  	<%= f.file_field :resume %>
+
+	<% if @pitch.avatar.present? %>
+  	<%= f.label :remove_resume, "Chunk resume" %>
+  	<%= f.check_box :remove_resume %>
+  	<%end%>
+
   	<br><br><br>
 	<%= f.submit %>
 <%end%>

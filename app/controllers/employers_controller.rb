@@ -1,6 +1,6 @@
 class EmployersController < ApplicationController
   
-  before_filter :ensure_logged_in
+  before_filter :ensure_logged_in, except: [:new, :create]
   before_filter :ensure_correct_user_type
 
   def ensure_correct_user_type
