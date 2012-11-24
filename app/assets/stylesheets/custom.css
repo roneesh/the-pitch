@@ -21,9 +21,6 @@ body {
 	height: 100%;
 }
 
-.content {
-	background-image: url("/assets/background6.jpeg");
-}
 
 a:link {
 	text-decoration:none; 
@@ -39,9 +36,8 @@ a:visited {
 
 a:hover {
 	text-decoration: none; 
-	color: white; 
-	
-	
+	color: black; 
+	background-color: white;
 	}
 
 a:active {
@@ -59,17 +55,14 @@ h1 {
     text-align: center;
 }
 
-.btn-group .btn-group-vertical .btn-custom {
-  margin: 300 0 300 0
-  background-color: hsl(36, 100%, 40%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffad32", endColorstr="#cc7a00");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#ffad32), to(#cc7a00));
-  background-image: -moz-linear-gradient(top, #ffad32, #cc7a00);
-  background-image: -ms-linear-gradient(top, #ffad32, #cc7a00);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffad32), color-stop(100%, #cc7a00));
-  background-image: -webkit-linear-gradient(top, #ffad32, #cc7a00);
-  background-image: -o-linear-gradient(top, #ffad32, #cc7a00);
-  background-image: linear-gradient(#ffad32, #cc7a00);
-  border-color: #cc7a00 #cc7a00 hsl(36, 100%, 35%);
+.info {
+	background-color: white;
+}
+
+
+
+table {
+	background-color: gray;
+	color: black;
+}
 

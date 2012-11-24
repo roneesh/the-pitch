@@ -1,7 +1,21 @@
 <h1> Hate your job? Find a new one below</h1>
 <div id='notice'><%=flash[:notice]%></div>
-<% @jobs.each do |job| %>
- Title: <h3><%= job.title %></h3>
- Description: <%= job.description %> </br></br>
- <%= link_to "Details", job_url(job.id) %><br> <br>
-<% end %>
+<div class="job_list">
+	<table class="table table-hover">
+	<% @jobs.each do |job| %>
+		<tr>
+		<td>	
+		 <ul>Title:<%= job.title %>|
+		 <%= link_to "Details", job_url(job.id) %></ul>
+		 <ul>Description: <%= job.description %> <ul>
+		</td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+
+
+
+
+
+
