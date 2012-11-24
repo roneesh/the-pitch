@@ -23,14 +23,14 @@ body {
 
 a:link {
 	text-decoration:none; 
-	color: #ff7400; 
+	/*color: #ff7400; */
 	font-weight: normal; 
 	font-family: 'Montserrat Alternates', sans-serif;
 	}
 
 a:visited {
 	text-decoration:none; 
-	color: #ff7400;
+	/*color: #ff7400;*/
 	}
 
 a:hover {

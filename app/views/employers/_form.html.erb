@@ -2,7 +2,7 @@
   <div class="span5 well user_form">
 	<%= form_for @employer, :html => {:class => "form-horizontal"} do |e| %>
  	<fieldset>
-		<%= e.label :name %>
+		<%= e.label :name, "Company Name" %>
 		<%= e.text_field :name, :class => "span12" %>
 
 		<%= e.label :email %>
@@ -18,8 +18,9 @@
 		<%= e.password_field :password_confirmation, :class => "span12"%>
 
 
-		<%= e.submit "Submit"%>
-		<%= link_to "or Cancel", root_url %>
+		<%= e.submit "Submit",:class => "btn btn-primary"%>
+		<%= link_to "Cancel", root_url, :class => "btn btn-primary" %>
+		
 	</fieldset>
 	<% end %>
   </div>
