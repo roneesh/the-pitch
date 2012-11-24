@@ -42,3 +42,8 @@ gem 'paperclip', '3.3.1'
 
 #TEST: For searching
 #gem 'thinking-sphinx', "~> 2.0.13"
+
+#To use CarrierWave for robust file uploading
+#CarrierWave will be our main file uploading method
+gem 'carrierwave'
+gem 'rmagick'

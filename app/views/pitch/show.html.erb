@@ -5,7 +5,7 @@
 <b>Job ID:</b> <%= link_to @pitch.job_id, job_path(@pitch.job_id) %><br>
 <%end%>
 <b> Photo: </b><br>
-<%= image_tag @pitch.profilepic.url %>
+<%= image_tag @pitch.avatar_url(:thumb).to_s %>
 <b> <%#= link_to "Create View Link", shorten_url(@pitch.id), html_options = { :method => "post" } %>
 <br>
 
