@@ -26,6 +26,9 @@ class EmployersController < ApplicationController
         flash[:message] = "Thanks for signing up, a confirmation e-mail has been sent to #{@employer.email}."
         session[:employer_id]=@employer.id
         redirect_to employer_url(session[:employer_id])
+    else 
+      flash[:message] = "Must fill out all fields"
+      render 'new'
     end
   end
   

@@ -15,13 +15,13 @@ class SessionsController < ApplicationController
   end
   
   def create_employer
-    employer = Employer.find_by_email(params[:email])
-    if employer && employer.authenticate(params[:password]) 
-      session[:employer_id] = employer.id
-      redirect_to employer_url(employer.id)
+    @employer = Employer.find_by_email(params[:email])
+    if @employer && @employer.authenticate(params[:password]) 
+      session[:employer_id] = @employer.id
+      redirect_to employer_url(@employer.id)
     else
      flash[:message] = "Invalid login e-mail or password"
-      redirect_to employerlogin_url
+     redirect_to employerlogin_url
     end
   end
   
@@ -37,10 +37,10 @@ class SessionsController < ApplicationController
   end
 
   def create_user
-    user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to user_path(user.id)
+    @user = User.find_by_email(params[:email])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect_to user_url(@user.id)
     else
       flash[:message] = "Invalid login e-mail or password"
       redirect_to userlogin_url

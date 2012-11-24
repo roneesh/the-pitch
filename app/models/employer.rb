@@ -5,7 +5,8 @@ class Employer < ActiveRecord::Base
 
   has_many :pitches, :through => :jobs
   
-  validates_presence_of :email, :password, :password_confirmation
+  validates_presence_of :name, :email, :password, :password_confirmation
+  validates_uniqueness_of :email
   
 
   def job
