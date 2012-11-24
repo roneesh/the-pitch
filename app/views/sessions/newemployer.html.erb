@@ -1,10 +1,15 @@
-<h3 id="slogan"> Find the person. </h3>
-<%= form_tag '/sessions/createemployer' do %>
-  <%= label_tag :email, "Email"%>
-  <%= text_field_tag :email%>
-  
-  <%= label_tag :password, "Password"%>
-  <%= password_field_tag :password %>
-  
-  <%= submit_tag "Login As Employer"%>
-<% end %>
+<h3 id="slogan"> Discover the the diamond in the rough. </h3>
+<div class="row-fluid">
+  <div class="offset4 span4 offset4 well login">
+	<%= form_tag '/sessions/createemployer' do %>
+	<theader>Login</theader>
+	  	<%= label_tag :email, "Email"%>
+	  	<%= text_field_tag :email%>
+	  
+	  	<%= label_tag :password, "Password"%>
+	  	<%= password_field_tag :password %>
+	  
+	  	<%= submit_tag "Login As Employer",:class => "btn btn-primary"%>
+	<% end %>
+  </div>
+</div>

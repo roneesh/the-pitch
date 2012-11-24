@@ -1,12 +1,16 @@
 <h3 id="slogan"> Get the job. </h3>
-<%= form_tag 'sessions/createuser' do %>
+<div class="row-fluid">
+  <div class="offset4 span4 offset4 well login">
+	<%= form_tag 'sessions/createuser' do %>
+	<theader>Login</theader>
+		<%= label_tag :email, "Email:" %>
+		<%= text_field_tag :email %>
 
-<%= label_tag :email, "Email:" %>
-<%= text_field_tag :email %>
+		<%= label_tag :password, "Password:" %>
+		<%= password_field_tag :password %>
 
-<%= label_tag :password, "Password:" %>
-<%= password_field_tag :password %>
+		<%= submit_tag "Login as user",:class => "btn btn-primary" %>
 
-<%= submit_tag "Login as user" %>
-
-<% end %>
+	<% end %>
+  </div>
+</div>
