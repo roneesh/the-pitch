@@ -5,17 +5,13 @@
 
 
 <div class="row-fluid">
-
-  <div class="span8 offset3">
-	<div class="btn-group btn-group-vertical btn-custom">
-	  <button class="btn"><%= link_to "Job Seeker Login", userlogin_path %></button>
-	  <button class="btn"><%= link_to "New Job Seeker? Create Account", new_user_path %></button>
+	<div class="span4 offset2 btn-group btn-group-vertical btn-custom">
+	 <%= link_to "Job Seeker Login", userlogin_path, :class => "btn"%>
+	 <%= link_to "New Job Seeker? Create Account", new_user_url, :class => "btn"%>
 	</div>
 
-	<div class="btn-group btn-group-vertical btn-custom">
-	  <button class="btn"><%= link_to "Employer Login", employerlogin_path %></button>
-	  <button class="btn"><%= link_to "New Employer? Create Account", new_employer_path %></button>
+	<div class="span4 offset2 btn-group btn-group-vertical btn-custom">
+	  <%= link_to "Employer Login", employerlogin_path, :class => "btn"%>
+	  <%= link_to "New Employer? Create Account", new_employer_url, :class => "btn"%>
 	</div>
-
-   </div>
 </div>
