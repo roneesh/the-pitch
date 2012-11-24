@@ -2,8 +2,11 @@
 <h1> A Pitch From <%=@pitch.user.first_name %></h1>
 <b>Pitch Headline: <%= @pitch.headline %></b><br>
 <% if @pitch.job_id != nil %>
-<b>Job ID:</b> <%= link_to @pitch.job_id, job_path(@pitch.job_id) %><br>
+<b>Job Title:</b> <%= link_to @pitch.job.title, job_path(@pitch.job_id) %><br>
+<% else %>
+<b>Job Title: No Associated Job (job_id)</b><br>
 <%end%>
+
 <b> Photo: </b><br>
 <%= image_tag @pitch.avatar_url(:thumb).to_s %>
 <b> <%#= link_to "Create View Link", shorten_url(@pitch.id), html_options = { :method => "post" } %>
