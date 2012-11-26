@@ -27,13 +27,13 @@
     <br> Email this candidate: <%= link_to @pitch.user.email, email_url(@pitch.id)%>
 <%end%>
 <!--  Mockup of future pitch show page below -->
-<% @video_link1 = "http://www.youtube.com/embed/TpvuvFkggaw" %>
+<% @video_link1 = "http://www.youtube.com/embed/YpugK0RpEaU" %>
 <% @video_link2 = "http://www.youtube.com/embed/QjlFqgRbICY" %>
 
 <div class="container fluid jumbotron">
         <h1><%= @pitch.headline %></h1>
         <% if session[:user_id] && @pitch.job_id.nil? %>
-        <p class="lead"><b> Copy this Pitch link: </b><%=link_to "Link for employer",  @pitch.url_string %></p>
+        <p class="lead">Copy this Pitch link: <%=link_to "Link for employer",  @pitch.url_string %></p>
         <%end%>
       </div>
 
@@ -49,24 +49,24 @@
 
       <div class="row-fluid marketing">
         <div class="span6">
-          <h4>Subheading</h4>
+          <h4>If I was in this position, I would...</h4>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-          <h4>Subheading</h4>
+          <h4>Why I want to work for you:</h4>
           <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
-          <h4>Subheading</h4>
+          <h4>Hidden Talents:</h4>
           <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
 
         <div class="span6">
-          <h4>Subheading</h4>
+          <h4>Custom Prompt 1:</h4>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-          <h4>Subheading</h4>
+          <h4>Custom Prompt 2:</h4>
           <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
-          <h4>Subheading</h4>
+          <h4>Custom Prompt 3:</h4>
           <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
       </div>
