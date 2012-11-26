@@ -48,7 +48,9 @@ get '/jobs/:id/edit' => 'jobs#edit', :as => 'edit_job'
 put '/jobs/:id' => 'jobs#update', :as => 'update_job'
 delete '/jobs/:id' => 'jobs#destroy', :as => 'destroy_job'
 
-
+get "prompt/new" => 'prompt#new', :as => 'new_prompt'
+post "prompt/create" => 'prompt#create'
+delete "prompt/:id" => 'prompt#delete', :as => 'prompt'
 
 get "/mockup/home" => 'mockup#home'
 

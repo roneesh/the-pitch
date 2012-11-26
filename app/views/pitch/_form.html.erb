@@ -28,7 +28,7 @@
 		<%#= f.label :user_id %>
 		<%#= f.text_field :user_id %>
 	<% end %>
-	<%= f.label :avatar  %>
+	  <%= f.label :avatar  %>
   	<%= f.file_field :avatar %>
 
   	<% if @pitch.avatar.present? %>
@@ -42,7 +42,7 @@
 	<% if @pitch.avatar.present? %>
   	<%= f.label :remove_resume, "Chunk resume" %>
   	<%= f.check_box :remove_resume %>
-  	<%end%>
+  <%end%> 
 
   	<br><br><br>
 	<%= f.submit %>
