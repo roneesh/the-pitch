@@ -27,13 +27,13 @@
     <br> Email this candidate: <%= link_to @pitch.user.email, email_url(@pitch.id)%>
 <%end%>
 <!--  Mockup of future pitch show page below -->
-<% @video_link1 = "http://www.youtube.com/embed/TpvuvFkggaw" %>
+<% @video_link1 = "http://www.youtube.com/embed/YpugK0RpEaU" %>
 <% @video_link2 = "http://www.youtube.com/embed/QjlFqgRbICY" %>
 
 <div class="container fluid jumbotron">
         <h1><%= @pitch.headline %></h1>
         <% if session[:user_id] && @pitch.job_id.nil? %>
-        <p class="lead"><b> Copy this Pitch link: </b><%=link_to "Link for employer",  @pitch.url_string %></p>
+        <p class="lead">Copy this Pitch link: <%=link_to "Link for employer",  @pitch.url_string %></p>
         <%end%>
       </div>
 
@@ -49,6 +49,10 @@
 
       <div class="row-fluid marketing">
         <div class="span6">
+
+          <h4>If I was in this position, I would...</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
           <% @pitch.prompts.each do |prompt_object| %>
 
           <h4><%= prompt_object.custom_question %></h4>
@@ -65,6 +69,7 @@
           <p><%= prompt_object.custom_answer %></p>
 
           <%end%>
+
         </div>
       </div>
 
