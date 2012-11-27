@@ -16,6 +16,8 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
 
   def show
   	@pitch = Pitch.find_by_id(params[:id])
+    prompts = @pitch.prompts
+
   end
 
   def new

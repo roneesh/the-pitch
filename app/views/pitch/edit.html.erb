@@ -5,13 +5,14 @@
 <%= render 'form' %>
 
 <h3> Create some prompts (think of these like talking points) </h3>
-<%= link_to "New Prompt", new_prompt_path %>
+<%= link_to "New Prompt", new_prompt_path, remote: true, id: "new_prompt_link" %>
 
 <h3> Edit custom prompts: </h3>
-<ul>
+
+<ul id="existing_prompts">
 <% @prompts.each do |prompt_object| %>
 	<li>
-		<%= prompt_object.custom_question %>
+		<%= prompt_object.custom_question %><br>
 		<%= prompt_object.custom_answer %><br>
 		<%= link_to "Delete this Prompt", prompt_url(prompt_object.id), method: 'delete' %>
 	</li>
