@@ -4,7 +4,8 @@ class Pitch < ActiveRecord::Base
   has_attached_file :profilepic
   
   belongs_to :job
-  belongs_to :user  
+  belongs_to :user
+  has_many :prompts  
   
   mount_uploader :avatar, AvatarUploader
   mount_uploader :resume, ResumeUploader
