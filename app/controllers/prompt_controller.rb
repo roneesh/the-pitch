@@ -16,10 +16,7 @@ class PromptController < ApplicationController
     respond_to do |f|
       f.html {redirect_to edit_pitch_url(@prompt.pitch_id)}
       f.js
-    end
-
-  	
-  	
+    end  	
   end
 
   def delete

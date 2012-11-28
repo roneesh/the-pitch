@@ -44,8 +44,28 @@
   	<%= f.check_box :remove_resume %>
   <%end%> 
 
+<% if @pitch.id %>
+  <h3> Create some prompts (think of these like talking points) </h3>
+    <%= link_to "New Prompt", new_prompt_path, remote: true, id: "new_prompt_link" %>
+
+  <h3> Edit custom prompts: </h3>
+
+    <ul id="existing_prompts">
+    <% if @prompts.any? %>
+      <% @prompts.each do |prompt_object| %>
+        <li>
+          <%= prompt_object.custom_question %><br>
+          <%= prompt_object.custom_answer %><br>
+          <%= link_to "Delete this Prompt", prompt_url(prompt_object.id), method: 'delete' %>
+        </li>
+      <%end%>
+    <%end%>
+
+    </ul>
+
   	<br><br><br>
-	<%= f.submit %>
+<% end %>
+<%= f.submit %>
 <%end%>
 
 <small>* Denotes field that can't be blank </small>
