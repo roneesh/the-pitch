@@ -8,11 +8,10 @@
 	<%= f.label :custom_answer%>
   <%= f.text_field :custom_answer, :class => "span12"%>
 
-  <%= f.label :pitch_id %>
-  <%= f.text_field :pitch_id %>
+  <%= f.hidden_field :pitch_id, :value => @pitch_id %>
 
   <%= f.submit "Submit",:class => "btn btn-primary"%>
-  <%= link_to "Cancel", root_url, :class => "btn btn-primary" %>
+  <%= link_to "Cancel", edit_pitch_url(@pitch_id), :class => "btn btn-primary" %>
   </fieldset> 
 <% end%>
   </div>

@@ -46,9 +46,9 @@
 
 <% if @pitch.id %>
   <h3> Create some prompts (think of these like talking points) </h3>
-    <%= link_to "New Prompt", new_prompt_path, remote: true, id: "new_prompt_link" %>
+    <%= link_to "Create New Prompt", "/prompt/new?pitch_id=#{@pitch.id}", remote: true, id: "new_prompt_link" %>
 
-  <h3> Edit custom prompts: </h3>
+  <h4> Manage existing prompts: </h4>
 
     <ul id="existing_prompts">
     <% if @prompts.any? %>

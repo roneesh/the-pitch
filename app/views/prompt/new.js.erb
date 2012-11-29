@@ -1,1 +1,1 @@
-$('#new_prompt_link').hide().after('<%= j render("prompt_form") %>');
+$('#new_prompt_link').hide().after('<%= j render("prompt_form", {:pitch_id => @pitch_id}) %>');

@@ -1,6 +1,7 @@
 class PromptController < ApplicationController
   def new
   	@prompt = Prompt.new
+    @pitch_id = params[:pitch_id]
 
     respond_to do |f|
       f.html 
