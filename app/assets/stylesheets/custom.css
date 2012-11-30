@@ -6,8 +6,8 @@ html {
 
  
 body {
-	background-color: black;
-	background-image: url("/assets/black_paper.png");
+	/*background-color: black;*/
+	/*background-image: url("/assets/black_paper.png");*/
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-position:  absolute;
@@ -23,7 +23,6 @@ body {
 
 a:link {
 	text-decoration:none; 
-	color: #ff7400; 
 	font-weight: normal; 
 	font-family: 'Montserrat Alternates', sans-serif;
 	}
@@ -42,15 +41,15 @@ a:hover {
 a:active {
 	text-decoration:none; 
 	color: ##FF7400;
-	}
+}
 
 h1 {
 	background-color: white;
 	color: black;
-	-moz-border-radius: 5px;
+/*	-moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    border-radius: 5px;
+    -khtml-border-radius: 5px;*/
+    /*border-radius: 5px;*/
     text-align: center;
     font-family: Helvetica;
 }
@@ -83,7 +82,8 @@ table {
 	font-size: 24px;
 }
 
-a:visited, a:active, .user_form {
+a:active, 
+.user_form {
 	color: black;
 	font-family: 'Montserrat Alternates', sans-serif;
 }
@@ -94,11 +94,13 @@ a:visited, a:active, .user_form {
 	background-size: cover;
 }
 
-#slogan, .title {
+#slogan, 
+.title {
 	color: white;
 }
 
-.jumbotron, .marketing {
+.jumbotron, 
+.marketing {
 	background-color: white;
 	-moz-border-radius: 5px;
     -webkit-border-radius: 5px;
