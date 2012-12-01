@@ -1,80 +1,81 @@
- 
-<h1> A Pitch From <%=@pitch.user.first_name %></h1>
-<b>Pitch Headline: <%= @pitch.headline %></b><br>
-<% if @pitch.job_id != nil %>
-<b>Job Title:</b> <%= link_to @pitch.job.title, job_path(@pitch.job_id) %><br>
-<% else %>
-<b>Job Title: No Associated Job (job_id)</b><br>
-<%end%>
+<div class="container" 
+  <h1> A Pitch From <%=@pitch.user.first_name %></h1>
+  <b>Pitch Headline: <%= @pitch.headline %></b><br>
+  <% if @pitch.job_id != nil %>
+  <b>Job Title:</b> <%= link_to @pitch.job.title, job_path(@pitch.job_id) %><br>
+  <% else %>
+  <b>Job Title: No Associated Job (job_id)</b><br>
+  <%end%>
 
-<b> Photo: </b><br>
-<%= image_tag @pitch.avatar_url(:thumb).to_s %>
-<b> <%#= link_to "Create View Link", shorten_url(@pitch.id), html_options = { :method => "post" } %>
-<br>
+  <b> Photo: </b><br>
+  <%= image_tag @pitch.avatar_url(:thumb).to_s %>
+  <b> <%#= link_to "Create View Link", shorten_url(@pitch.id), html_options = { :method => "post" } %>
+  <br>
 
-<b> Resume: </b><br>
-<%= image_tag @pitch.resume_url.to_s %>
-<br>
+  <b> Resume: </b><br>
+  <%= image_tag @pitch.resume_url.to_s %>
+  <br>
 
-<% if session[:user_id] && @pitch.job_id.nil? %>
-  <b> Share this Pitch: </b> <br>
-  <%= @pitch.url_string %>
-<%end%>
+  <% if session[:user_id] && @pitch.job_id.nil? %>
+    <b> Share this Pitch: </b> <br>
+    <%= @pitch.url_string %>
+  <%end%>
 
 
-<% if session[:employer_id]%>
-    <b>Like what you see? </b>
-    <br> Email this candidate: <%= link_to @pitch.user.email, email_url(@pitch.id)%>
-<%end%>
-<!--  Mockup of future pitch show page below -->
-<% @video_link1 = "http://www.youtube.com/embed/YpugK0RpEaU" %>
-<% @video_link2 = "http://www.youtube.com/embed/QjlFqgRbICY" %>
+  <% if session[:employer_id]%>
+      <b>Like what you see? </b>
+      <br> Email this candidate: <%= link_to @pitch.user.email, email_url(@pitch.id)%>
+  <%end%>
+  <!--  Mockup of future pitch show page below -->
+  <% @video_link1 = "http://www.youtube.com/embed/YpugK0RpEaU" %>
+  <% @video_link2 = "http://www.youtube.com/embed/QjlFqgRbICY" %>
 
-<div class="container fluid jumbotron">
-        <h1><%= @pitch.headline %></h1>
-        <% if session[:user_id] && @pitch.job_id.nil? %>
-        <p class="lead">Copy this Pitch link: <%=link_to "Link for employer",  @pitch.url_string %></p>
-        <%end%>
-      </div>
-
-      <hr>
-      <section class="row media">
-      	<div class="span6">
-    		<div class="flex-video widescreen"><iframe width="400" height="225" src= "<%=@video_link1%>" frameborder="0" allowfullscreen></iframe></div>
-  		</div>
-  		<div class="span6">
-    		<div class="flex-video widescreen"><iframe width="400" height="225" src= "<%=@video_link2%>" frameborder="0" allowfullscreen></iframe></div>
-  		</div>
-	  </section>
-
-      <div class="row-fluid marketing">
-        <div class="span6">
-
-          <% @even_index_prompts.each do |prompt_object| %>
-
-          <h4><%= prompt_object.custom_question %></h4>
-          <p><%= prompt_object.custom_answer %></p>
-
+  <div class="container fluid jumbotron">
+          <h1><%= @pitch.headline %></h1>
+          <% if session[:user_id] && @pitch.job_id.nil? %>
+          <p class="lead">Copy this Pitch link: <%=link_to "Link for employer",  @pitch.url_string %></p>
           <%end%>
-
         </div>
 
-        <div class="span6">
-          <% @odd_index_prompts.each do |prompt_object| %>
+        <hr>
+        <section class="row media">
+        	<div class="span6">
+      		<div class="flex-video widescreen"><iframe width="400" height="225" src= "<%=@video_link1%>" frameborder="0" allowfullscreen></iframe></div>
+    		</div>
+    		<div class="span6">
+      		<div class="flex-video widescreen"><iframe width="400" height="225" src= "<%=@video_link2%>" frameborder="0" allowfullscreen></iframe></div>
+    		</div>
+  	  </section>
 
-          <h4><%= prompt_object.custom_question %></h4>
-          <p><%= prompt_object.custom_answer %></p>
+        <div class="row-fluid marketing">
+          <div class="span6">
 
-          <%end%>
+            <% @even_index_prompts.each do |prompt_object| %>
 
+            <h4><%= prompt_object.custom_question %></h4>
+            <p><%= prompt_object.custom_answer %></p>
+
+            <%end%>
+
+          </div>
+
+          <div class="span6">
+            <% @odd_index_prompts.each do |prompt_object| %>
+
+            <h4><%= prompt_object.custom_question %></h4>
+            <p><%= prompt_object.custom_answer %></p>
+
+            <%end%>
+
+          </div>
         </div>
-      </div>
 
-      <hr>
+        <hr>
 
-      <div class="footer">
-        <p>&copy; ThePitch 2012</p>
-      </div>
+        <div class="footer">
+          <p>&copy; ThePitch 2012</p>
+        </div>
+</div>
 
 
 
