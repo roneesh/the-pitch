@@ -51,3 +51,4 @@ gem 'paperclip', '3.3.1'
 #CarrierWave will be our main file uploading method
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog'
