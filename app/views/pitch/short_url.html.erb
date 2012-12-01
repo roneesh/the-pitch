@@ -1,5 +1,5 @@
  
-
+<div class="container">
 
 <h1> A Pitch From <%=@pitch.user.first_name %></h1>
 <b>Pitch Headline: <%= @pitch.headline %></b><br>
@@ -10,7 +10,7 @@
 <%end%>
 
 <b> Photo: </b><br>
-<%= image_tag @pitch.avatar_url(:thumb).to_s %>
+<%= image_tag @pitch.avatar_url(:thumb).to_s , :size %>
 <b> <%#= link_to "Create View Link", shorten_url(@pitch.id), html_options = { :method => "post" } %>
 <br>
 
@@ -29,6 +29,13 @@
     <br> Email this candidate: <%= link_to @pitch.user.email, email_url(@pitch.id)%>
 <%end%>
 <!--  Mockup of future pitch show page below -->
+<h1> A Pitch From <%=@pitch.user.first_name %></h1>
+<b>Pitch Headline: <%= @pitch.headline %></b><br>
+<% if @pitch.job_id != nil %>
+<b>Job Title:</b> <%= link_to @pitch.job.title, job_path(@pitch.job_id) %><br>
+<% else %>
+<b>Job Title: No Associated Job (job_id)</b><br>
+<%end%>
 <% @video_link1 = "http://www.youtube.com/embed/YpugK0RpEaU" %>
 <% @video_link2 = "http://www.youtube.com/embed/QjlFqgRbICY" %>
 
@@ -76,7 +83,7 @@
       </div>
 
       <hr>
-
+</div>
       <div class="footer">
         <p>&copy; ThePitch 2012</p>
       </div>
