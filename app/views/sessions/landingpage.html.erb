@@ -3,47 +3,57 @@
 <h1> The Pitch. Make Your Case. Get Your Dream Job. </h1>
 </div>
 
+<center>
+<div class="gallery">
+			
+			<div class="container c11">
+				<div class="wrap">
+					<div class="front">
+						<img src="assets/background3.jpeg" alt="" />
+					</div>
+					<div class="back">
+						<%= form_tag '/sessions/create_user', :method => 'post' do %>
+						<%= label_tag :email, "Email:" %>
+						<%= text_field_tag :email %>
 
-<div class="container">
-			<!--  Carousel - consult the Twitter Bootstrap docs at 
-	      http://twitter.github.com/bootstrap/javascript.html#carousel -->
-	      <hr class="divider" style="color:red; border: 10px 0px 10px 0px"></hr>
-	<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
-	  <div class="carousel-inner">
-	    <div class="item active"><!-- class of active since it's the first item -->
+						<%= label_tag :password, "Password:" %>
+						<%= password_field_tag :password %>
 
-	      <%= image_tag ("background3.jpeg") %>	
-	      <div class="carousel-caption">
-	        <p>Caption text here</p>
-	      </div>
-	    </div>
-	    <div class="item">
-	      <%= image_tag ("background2.jpeg") %>	
-	      <div class="carousel-caption">
-	        <p>Caption text here</p>
-	      </div>
-	    </div>
-	    <div class="item">
-	      <%= image_tag ("background1.jpeg") %>	
-	      <div class="carousel-caption">
-	        <p>Caption text here</p>
-	      </div>
-	    </div>
-	    <div class="item">
-	      <%= image_tag ("background0.jpeg") %>	
-	      <div class="brett-caption">
-	        <p>Caption text here</p>
-	      </div>
-	    </div>
-	  </div><!-- /.carousel-inner -->
-	  <!--  Next and Previous controls below
-	        href values must reference the id for this carousel -->
-	    <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
-	    <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
-	</div><!-- /.carousel -->
-
+						<%= submit_tag "Enter" %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+			
+	<!-- 		<div class="container c12" data-link="http://www.facebook.com/pages/jscraftnet/157350924364373">
+				<div class="wrap">
+					<div class="front">
+						<img src="assets/background2.jpeg" alt="" />
+					</div>
+					<div class="back">
+						<p>Facebook</p>
+					</div>
+				</div>
+			</div>
+			<div class="container c21">
+				<div class="wrap">
+					<div class="front">
+						<img src="assets/background1.jpeg" alt="" />
+					</div>
+					<div class="back">
+						<p>Forrst</p>
+					</div>
+				</div>
+			</div>
+			<div class="container c22">
+				<div class="wrap">
+					<div class="front">
+						<img src="assets/background0.jpeg" alt="" />
+					</div>
+					<div class="back">
+						<p>Dribbble</p>
+					</div>
+				</div>
+			</div> -->
 </div>
-
-
-
-
+</center>

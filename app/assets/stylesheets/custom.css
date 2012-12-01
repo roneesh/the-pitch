@@ -117,3 +117,166 @@ a:active,
 .headline {
 	background-color: red;
 }
+
+.carousel-inner img{
+	height: 300px; 
+	width: auto;
+	/*background-repeat: no-repeat;
+	background-position:  absolute;
+	background-size: cover;*/
+}
+
+====================================
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+
+/* ------ general
+-----------------------------------------------*/
+
+html, body {
+padding:0;
+margin:0;
+height:100%;
+min-height:100%;
+}
+
+body {
+font-family:Arial, Helvetica, sans-serif;
+background:url(../images/bg.jpg) no-repeat top left fixed;
+font-size:12px;
+color:#aaa;
+}
+
+.title {
+position:absolute;
+top:50%;
+left:50%;
+width:720px;
+margin:-340px 0 0 -360px;
+font-family:'PT Sans Narrow', sans-serif;
+font-weight:normal;
+font-size:34px;
+text-align:center;
+}
+
+.gallery {
+position:absolute;
+top:50%;
+left:50%;
+width:720px;
+height:420px;
+margin:-210px 0 0 -360px;
+}
+
+.gallery .container {
+position:absolute;
+width:350px;
+height:200px;
+cursor:pointer;
+}
+
+.gallery .container .wrap {
+width:100%;
+height:100%;
+-webkit-transform-style: preserve-3d;
+-webkit-transition:all .5s ease-out;
+-moz-transition:all .5s ease-out;
+-o-transition:all .5s ease-out;
+border:1px solid #eee;
+}
+
+.gallery .container .wrap.active {
+-webkit-transform:rotateX(-90deg);
+}
+
+.gallery .container.c11 {
+top:0;
+left:0;
+}
+
+.gallery .container.c12 {
+top:0;
+left:360px;
+}
+
+.gallery .container.c21 {
+top:210px;
+left:0;
+}
+
+.gallery .container.c22 {
+top:210px;
+left:360px;
+}
+
+.gallery .container .front, .gallery .container .back {
+position:absolute;
+top:0;
+left:0;
+}
+
+.gallery .container .front {
+-webkit-transform:translateZ(100px);
+width:350px;
+height:200px;
+-webkit-box-shadow: 0 0 10px #ccc;
+}
+
+.gallery .container .back {
+-webkit-transform:rotateX(90deg) translateZ(100px);
+padding:20px;
+width:310px;
+height:160px;
+font-size:28px;
+color:#fff;
+text-align:left;
+text-transform:uppercase;
+font-family:'PT Sans Narrow', sans-serif;
+}
+
+.gallery .c11 .back {
+background: #a6def7;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a6def7), color-stop(100%,#4dc6ec));
+background: -webkit-linear-gradient(top,  #a6def7 0%,#4dc6ec 100%);
+background: linear-gradient(top,  #a6def7 0%,#4dc6ec 100%);
+}
+
+.gallery .c12 .back {
+background: #5e78af;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5e78af), color-stop(100%,#39517b));
+background: -webkit-linear-gradient(top,  #5e78af 0%,#39517b 100%);
+background: linear-gradient(top,  #5e78af 0%,#39517b 100%);
+}
+
+.gallery .c21 .back {
+background: #375e3f;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#375e3f), color-stop(100%,#325339));
+background: -webkit-linear-gradient(top,  #375e3f 0%,#325339 100%);
+background: linear-gradient(top,  #375e3f 0%,#325339 100%);
+
+}
+
+.gallery .c22 .back {
+background: #ed5991;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ed5991), color-stop(100%,#c6386e));
+background: -webkit-linear-gradient(top,  #ed5991 1%,#c6386e 100%);
+background: linear-gradient(top,  #ed5991 1%,#c6386e 100%);
+}
+
+.gallery .back p {
+margin:0;
+line-height:160px;
+height:160px;
+width:310px;
+text-align:center;
+color:#fff;
+}
+
+a {
+color:#222;
+text-decoration:none;
+}
+
+.front img{
+	height: 200px;
+	width: 350px;
+}

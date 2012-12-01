@@ -1,0 +1,30 @@
+<h1>Menu</h1>
+<% @categories.each do |category| %>
+
+	<div class='container-fluid red'>
+	  <div class= 'row-fluid green'>
+		<h3><%= category.name %></h3>
+		  <div class="span5">
+		    <%= image_tag(category.pic_url, :width => 400) %>
+		  </div>
+		  <div class='span2'>
+		  </div>
+
+		  <div class="container span4 green">
+			<% category.items.each do |item| %>
+
+
+				<div id="price">$<%= item.price %></div>	
+				<div id="name"><%= item.name %></div>
+				<div id="description"><%= item.description %></div><br />
+			
+
+			<% end %>		
+		  </div>	
+	    </div>
+	</div>
+	
+		
+<% end %>
+
+
