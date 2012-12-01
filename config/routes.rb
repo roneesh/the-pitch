@@ -1,5 +1,17 @@
 ThePitch::Application.routes.draw do
 
+  get "pitch_attachment/new"
+
+  post "pitch_attachment/create"
+
+  delete '/pitch_attachment/:id' => 'PitchAttachment#destroy', :as => "pitch_attachment_destroy"
+
+  get "attachment/new"
+
+  get "attachment/create"
+
+  delete "attachment/delete"
+
 root :to => 'Sessions#landingpage'
 
 get '/employerlogin' => 'sessions#newemployer', :as => 'employerlogin'

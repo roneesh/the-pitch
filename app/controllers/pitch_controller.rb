@@ -19,6 +19,7 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
   def show
   	@pitch = Pitch.find_by_id(params[:id])
     prompts = @pitch.prompts
+    @pitch_attachments = @pitch.pitch_attachments
     @even_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.even?})
     @odd_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.odd?})
 
@@ -51,6 +52,8 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
     @prompt = Prompt.new
     @prompt_pitch_id = @pitch.id
     @prompts = @pitch.prompts
+    @pitch_attachments = @pitch.pitch_attachments
+
   end
 
   def update

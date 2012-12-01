@@ -6,6 +6,7 @@ class Pitch < ActiveRecord::Base
   belongs_to :job
   belongs_to :user
   has_many :prompts  
+  has_many :pitch_attachments
   
   mount_uploader :avatar, AvatarUploader
   mount_uploader :resume, ResumeUploader

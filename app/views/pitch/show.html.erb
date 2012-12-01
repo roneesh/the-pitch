@@ -7,13 +7,17 @@
 <b>Job Title: No Associated Job (job_id)</b><br>
 <%end%>
 
+<% if @pitch.avatar_url %>
 <b> Photo: </b><br>
 <%= image_tag @pitch.avatar_url(:thumb).to_s %>
 <b> <%#= link_to "Create View Link", shorten_url(@pitch.id), html_options = { :method => "post" } %>
 <br>
+<%end%>
 
+<% if @pitch.resume_url %>
 <b> Resume: </b><br>
-<%= image_tag @pitch.resume_url.to_s %>
+<%= link_to "Download my resume", @pitch.resume_url.to_s %>
+<%end%>
 <br>
 
 <% if session[:user_id] && @pitch.job_id.nil? %>
@@ -69,6 +73,24 @@
 
         </div>
       </div>
+
+<div class="row-fluid marketing">
+      
+    <% if @pitch_attachments.any? %>
+     <h3> Attachments: </h3><br><br>
+     <ul id="existing_attachments">
+      <% @pitch_attachments.each do |pitch_attachment_object| %>
+        <li>
+          <b> Name: </b><%= pitch_attachment_object.name %><br>
+          <%= link_to image_tag(pitch_attachment_object.attachment_url), pitch_attachment_object.attachment_url.to_s %><br>
+          Click thubnail to Download<br>
+          <!-- <b> Pitch Attachment ID: </b> --> <%#= pitch_attachment_object.id %>
+          <!-- <b> Pitch ID: </b>  --><%#= pitch_attachment_object.pitch_id %>
+          <%= link_to "Delete this attachment", pitch_attachment_destroy_url(pitch_attachment_object.id), method: 'delete' %>
+        </li>
+      <%end%>
+    <%end%>
+</div>
 
       <hr>
 
