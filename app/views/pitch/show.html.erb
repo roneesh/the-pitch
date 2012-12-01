@@ -1,31 +1,12 @@
- 
-<h1> A Pitch From <%=@pitch.user.first_name %></h1>
-<b>Pitch Headline: <%= @pitch.headline %></b><br>
 <% if @pitch.job_id != nil %>
-<b>Job Title:</b> <%= link_to @pitch.job.title, job_path(@pitch.job_id) %><br>
+  <b>Job Title:</b> <%= link_to @pitch.job.title, job_path(@pitch.job_id) %><br>
 <% else %>
-<b>Job Title: No Associated Job (job_id)</b><br>
+  <!-- <b>Job Title: No Associated Job (job_id)</b><br> -->
 <%end%>
-
-<% if @pitch.avatar_url %>
-<b> Photo: </b><br>
-<%= image_tag @pitch.avatar_url(:thumb).to_s %>
-<b> <%#= link_to "Create View Link", shorten_url(@pitch.id), html_options = { :method => "post" } %>
-<br>
-<%end%>
-
-<% if @pitch.resume_url %>
-<b> Resume: </b><br>
-<%= link_to "Download my resume", @pitch.resume_url.to_s %>
-<%end%>
-<br>
 
 <div class="container-fluid">
 
-<% if session[:user_id] && @pitch.job_id.nil? %>
-  <b> Share this Pitch: </b> <br>
-  <%= @pitch.url_string %>
-<%end%>
+
 
 <p class="lead">Copy this Pitch link: <%=link_to "Link for employer",  @pitch.url_string %></p>
 
@@ -38,60 +19,56 @@
 <% @video_link2 = "http://www.youtube.com/embed/QjlFqgRbICY" %>
 
 <div class="jumbotron">
-        <h4><%=@pitch.user.first_name.capitalize %>'personal pitch</h4>
-        <% if session[:user_id] && @pitch.job_id.nil? %>
+  <h4><%=@pitch.user.first_name.capitalize %>'personal pitch</h4>
+  <% if session[:user_id] && @pitch.job_id.nil? %>
         
-        <h1 class="row-fluid span4"><%= @pitch.headline%></h1>
+  <h1 class="row-fluid span4"><%= @pitch.headline%></h1>
+  <hr>
 
-        <div class="row-fluid span12">
-          <%= image_tag @pitch.avatar_url(:thumb).to_s, :size=>'100x100', :class => "row-fluid span2"%>
-          <p class="row-fluid span8"><b><%= @pitch.user.first_name.capitalize%>'s Story:</b> In a previous life I was a cancer researcher. My life was dedicated to improve the lives of our patients.  After 7 years, I discovered a love for programming.  I started graviatingn more and more with the progammers.  My sister introduced me to Codecademy's online learning system.  I was hooked.  I finally reached a point where I was tired of playing in sandboxes and wanted to actually create.  That's why I applied to The Starter League in Chicago.  Upon my acceptance, I resigned from my job, sold my house, packed my bags and flew to Chicago.   </p>
-        </div>
-          
-        <%end%>
+  <div class="row-fluid span12">
+    <%= image_tag @pitch.avatar_url(:thumb).to_s, :size=>'100x100', :class => "row-fluid span2"%>
+
+    <p class="row-fluid span8"><b><%= @pitch.user.first_name.capitalize%>'s Story:</b> In a previous life I was a cancer researcher. My life was dedicated to improve the lives of our patients.  After 7 years, I discovered a love for programming.  I started graviatingn more and more with the progammers.  My sister introduced me to Codecademy's online learning system.  I was hooked.  I finally reached a point where I was tired of playing in sandboxes and wanted to actually create.  That's why I applied to The Starter League in Chicago.  Upon my acceptance, I resigned from my job, sold my house, packed my bags and flew to Chicago.   </p>
+  </div>
+        
+      <%end%>
       
 
       <hr>
   
-      <div class="row-fluid span12">
-        <div class="row-fluid span4 flex-video widescreen"><iframe width="100%" src= "<%=@video_link2%>" frameborder="0" allowfullscreen></iframe></div>
-      
-      
-    
+  <div class="row-fluid span12">
 
-        <div class="row-fluid span8 marketing">
-          <div class="span6">
+    <div class="row-fluid span8 marketing">
 
-            <% @even_index_prompts.each do |prompt_object| %>
-
-            <h4><%= prompt_object.custom_question %></h4>
-            <p><%= prompt_object.custom_answer %></p>
-
-            <%end%>
-
-          </div>
-
-          <div class="span6">
-            <% @odd_index_prompts.each do |prompt_object| %>
-
-            <h4><%= prompt_object.custom_question %></h4>
-            <p><%= prompt_object.custom_answer %></p>
-
-            <%end%>
-
-          </div>
-        </div>
+      <div class="span6">
+        <% @even_index_prompts.each do |prompt_object| %>
+          <h4><%= prompt_object.custom_question %></h4>
+          <p><%= prompt_object.custom_answer %></p>
+        <%end%>
       </div>
 
+      <div class="span6">
+        <% @odd_index_prompts.each do |prompt_object| %>
+          <h4><%= prompt_object.custom_question %></h4>
+          <p><%= prompt_object.custom_answer %></p>
+        <%end%>
+      </div>
+
+    </div>
+
+    <div class="row-fluid span4 "><iframe width="100%" height="300px"src= "<%=@video_link2%>" frameborder="0" allowfullscreen></iframe></div>
+
+  </div>
+
 <div class="row-fluid marketing">
-      
+    <div class="row-fluid span12">  
     <% if @pitch_attachments.any? %>
-     <h3> Attachments: </h3><br><br>
+     <h3> Attachments: </h3>
      <ul id="existing_attachments">
       <% @pitch_attachments.each do |pitch_attachment_object| %>
-        <li>
+        <li class="row-fluid span3">
           <b> Name: </b><%= pitch_attachment_object.name %><br>
-          <%= link_to image_tag(pitch_attachment_object.attachment_url), pitch_attachment_object.attachment_url.to_s %><br>
+          <%= link_to image_tag("doc2_icon.png"), pitch_attachment_object.attachment_url.to_s, :size => '100x100'%><br>
           Click thubnail to Download<br>
           <!-- <b> Pitch Attachment ID: </b> --> <%#= pitch_attachment_object.id %>
           <!-- <b> Pitch ID: </b>  --><%#= pitch_attachment_object.pitch_id %>
@@ -99,28 +76,10 @@
         </li>
       <%end%>
     <%end%>
+  </div>
 </div>
 
       <hr>
 
-      <div class="footer">
-        <p>&copy; ThePitch 2012</p>
-      </div>
 
 
-
-
-      <div class="row-fluid span12">
-
-        <div class="row-fluid span4">
-          <%= link_to image_tag("doc_icon.png"), '#'%>
-        </div>
-        <div class="row-fluid span4">
-          <%= link_to image_tag("folder_icon.png"), '#'%>
-        </div>
-        <div class="row-fluid span4">
-          
-        </div>
-
-      </div>
-</div>
