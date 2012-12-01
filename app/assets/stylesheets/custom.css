@@ -29,18 +29,18 @@ a:link {
 
 a:visited {
 	text-decoration:none; 
-	color: #ff7400;
+	
 	}
 
 a:hover {
 	text-decoration: none; 
-	color: black; 
+
 	background-color: white;
 	}
 
 a:active {
 	text-decoration:none; 
-	color: ##FF7400;
+	
 }
 
 h1 {
@@ -66,6 +66,7 @@ table {
 	background-color: gray;
 	color: black;
 }
+
 
 .sneak_peak {
 	height: 300px;
@@ -108,12 +109,11 @@ a:active,
     border-radius: 5px;
 }
 
-.brett-caption {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 15px;
-  background: pink;
-  background:rgba(192, 192, 192, 0.8);
+
+.pic {
+	background-color: green;
+}
+
+.headline {
+	background-color: red;
 }

@@ -32,7 +32,7 @@
   	<%= f.file_field :avatar %>
 
   	<% if @pitch.avatar.present? %>
-  	<%= f.label :remove_avatar, "Chunk image" %>
+  	<%= f.label :remove_avatar, "Delete image" %>
   	<%= f.check_box :remove_avatar %>
   	<%end%>
 
@@ -40,7 +40,7 @@
   	<%= f.file_field :resume %>
 
 	<% if @pitch.avatar.present? %>
-  	<%= f.label :remove_resume, "Chunk resume" %>
+  	<%= f.label :remove_resume, "Delete resume" %>
   	<%= f.check_box :remove_resume %>
   <%end%> 
 
@@ -57,6 +57,25 @@
           <%= prompt_object.custom_question %><br>
           <%= prompt_object.custom_answer %><br>
           <%= link_to "Delete this Prompt", prompt_url(prompt_object.id), method: 'delete' %>
+        </li>
+      <%end%>
+    <%end%>
+
+    </ul>
+
+  <h4> Manage existing prompts: </h4>
+   <%= link_to "Add Attachment", "/pitch_attachment/new?pitch_id=#{@pitch.id}", id: "new_attachment_link" %>
+
+   <ul id="existing_attachments">
+    <% if @pitch_attachments.any? %>
+      <% @pitch_attachments.each do |pitch_attachment_object| %>
+        <li>
+          <b> Name: </b><%= pitch_attachment_object.name %><br>
+          <%= link_to image_tag(pitch_attachment_object.attachment_url), pitch_attachment_object.attachment_url.to_s %><br>
+          Click thubnail to Download<br>
+          <!-- <b> Pitch Attachment ID: </b> --> <%#= pitch_attachment_object.id %>
+          <!-- <b> Pitch ID: </b>  --><%#= pitch_attachment_object.pitch_id %>
+          <%= link_to "Delete this attachment", pitch_attachment_destroy_url(pitch_attachment_object.id), method: 'delete' %>
         </li>
       <%end%>
     <%end%>

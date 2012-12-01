@@ -11,7 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127232716) do
+
+
+ActiveRecord::Schema.define(:version => 20121201045956) do
+
 
   create_table "attachments", :force => true do |t|
     t.integer  "pitch_id"
@@ -37,6 +40,15 @@ ActiveRecord::Schema.define(:version => 20121127232716) do
     t.integer  "employer_id"
     t.string   "contact_email"
     t.integer  "maxpitchcount", :default => 1000
+  end
+
+  create_table "pitch_attachments", :force => true do |t|
+    t.integer  "pitch_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "attachment"
+    t.string   "name"
   end
 
   create_table "pitches", :force => true do |t|
