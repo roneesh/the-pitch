@@ -34,20 +34,22 @@
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'images/favicon.ico', :rel => 'shortcut icon' %>
   </head>
+  
   <body>
 
-  <%= render "layouts/header" %>
-  <%= yield %>
+    <%= render "layouts/header" %>
+    <%= yield %>
 
-  <footer>
-    <p>&copy; Company 2012</p>
-  </footer>
 
 
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
-
+    <div class="footer">
+        <p>&copy; ThePitch 2012</p>
+    </div>
+  
   </body>
+
 </html>
