@@ -3,7 +3,6 @@ class  PitchController < ApplicationController
 before_filter :ensure_logged_in, except: [:short_url]
 before_filter :ensure_correct_user_id, only: [:show, :edit]
 
-#Create a callback that deletes all prompts that exist without an existing pitch_id
 
   def ensure_correct_user_id
     if session[:user_id] != Pitch.find_by_id(params[:id]).user_id
@@ -12,6 +11,12 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
     end
   end
   
+  def destroy_pitch_attachments(id)
+    pitch = Pitch.find_by_id(id)
+    attachments = pitch.pitch_attachments
+    attachments.destroy_all
+  end
+
   def index
   	@pitches = Pitch.all
   end
@@ -22,7 +27,6 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
     @pitch_attachments = @pitch.pitch_attachments
     @even_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.even?})
     @odd_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.odd?})
-
   end
 
   def new
@@ -53,7 +57,6 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
     @prompt_pitch_id = @pitch.id
     @prompts = @pitch.prompts
     @pitch_attachments = @pitch.pitch_attachments
-
   end
 
   def update
@@ -65,6 +68,7 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
   def destroy
   	@pitch = Pitch.find_by_id(params[:id])
     prompts = @pitch.prompts
+    destroy_pitch_attachments(params[:id])
   	@pitch.destroy
     prompts.destroy_all
   	redirect_to user_url(session[:user_id])
@@ -86,5 +90,6 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
     @even_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.even?})
     @odd_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.odd?})
   end
+
 
 end

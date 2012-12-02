@@ -45,6 +45,10 @@
 	<% if @pitch.avatar.present? %>
   	<%= f.label :remove_resume, "Delete resume" %>
   	<%= f.check_box :remove_resume, :class => "checkbox" %>
+
+    <%= f.label :video_link, "Put a Youtube embed string in" %>
+    <%= f.text_field :video_link %>
+
   <%end%> 
 
 

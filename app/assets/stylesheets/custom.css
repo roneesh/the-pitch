@@ -110,6 +110,7 @@ a:active,
     border-radius: 5px;
 }
 
+
 .pic {
 	background-color: green;
 }
@@ -118,5 +119,25 @@ a:active,
 	background-color: red;
 }
 
+.carousel-inner img{
+	height: 300px;
+	width:100%; 
+	
+	/*background-repeat: no-repeat;
+	background-position:  absolute;
+	background-size: cover;*/
+}
 
+#landingslider{
+	width: 800px;
+}
+
+.landingform{
+	padding: 20px;
+}
+
+.carousel-caption h2{
+	text-align: center;
+	color: white;
+}
 
