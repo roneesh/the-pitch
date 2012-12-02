@@ -52,17 +52,12 @@ h1 {
     -webkit-border-radius: 5px;
     -khtml-border-radius: 5px;*/
     /*border-radius: 5px;*/
-    text-align: center;
+    text-align: left;
     font-family: Helvetica;
 }
 
 .info {
 	background-color: white;
-}
-
-h1 {
-	font-family: 'Montserrat Alternates', sans-serif;
-	text-align: center;
 }
 
 table {
@@ -143,6 +138,8 @@ a:active,
 .carousel-caption h2{
 	text-align: center;
 	color: white;
+	font-weight: lighter;
+	font-family:'Helvetica Neue';
 }
 
 .img-circle {
@@ -170,5 +167,9 @@ a:active,
 }
 
 .table-hover {
-	background-color: #DEE8DD;
+	color: #DEE8DD;
+}
+.left_bar {
+	background-color: red;
+	height: 100%;
 }
