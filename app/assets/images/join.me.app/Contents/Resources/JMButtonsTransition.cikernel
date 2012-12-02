@@ -1,0 +1,24 @@
+//
+//  JMButtonsTransition.cikernel
+//  join.me
+//
+//  Created by Károly Lőrentey on 2012-03-04.
+//  Copyright (c) 2012 LogMeIn, Inc. All rights reserved.
+//
+
+kernel vec4 jmButtonsTransition(sampler image, sampler targetImage, vec4 extent, float time)
+{
+    vec2 dc = destCoord();
+    
+    vec2 scale_center = vec2(extent.x + extent.z / 2.0, extent.y + extent.w); // Top center
+    vec2 dc_scaled = (1.0 / time) * (dc - scale_center) + scale_center;
+
+	vec2 sourcePos = samplerCoord(image);
+	vec4 sourcePixel = unpremultiply(sample(image, sourcePos));
+    
+    vec2 targetPos = samplerTransform(targetImage, dc_scaled);
+    vec4 targetPixel = unpremultiply(sample(targetImage, targetPos));
+    
+    vec4 result = mix(sourcePixel, targetPixel, time);
+    return premultiply(result);
+}

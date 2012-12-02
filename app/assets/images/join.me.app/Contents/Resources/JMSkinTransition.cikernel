@@ -1,0 +1,38 @@
+//
+//  JMSkinTransition.cikernel
+//  join.me
+//
+//  Created by Károly Lőrentey on 2012-02-11.
+//  Copyright (c) 2012 LogMeIn, Inc. All rights reserved.
+//
+
+float luma(vec4 pixel)
+{
+    return 0.30 * pixel.r + 0.59 * pixel.g + 0.11 * pixel.b;
+}
+
+kernel vec4 jmSkinTransition(sampler image, sampler targetImage, float time, float t1, float t2)
+{
+    vec4 sourcePixel = sample(image, samplerCoord(image));
+    vec4 targetPixel = sample(targetImage, samplerCoord(targetImage));
+    
+    float lumaSource = luma(sourcePixel);
+    float lumaTarget = luma(targetPixel);
+    
+    vec4 desatSourcePixel = vec4(lumaSource, lumaSource, lumaSource, sourcePixel.a);
+    vec4 desatTargetPixel = vec4(lumaTarget, lumaTarget, lumaTarget, targetPixel.a);
+    
+    vec4 from = (time < t1 ? sourcePixel
+                 : time < t2 ? desatSourcePixel
+                 : desatTargetPixel);
+
+    vec4 to = (time < t1 ? desatSourcePixel
+               : time < t2 ? desatTargetPixel
+               : targetPixel);
+
+    float t = (time < t1 ? time / t1 
+               : time < t2 ? (time - t1) / (t2 - t1) 
+               : (time - t2) / (1.0 - t2));
+
+    return sourcePixel == targetPixel ? targetPixel : mix(from, to, t);
+}
