@@ -3,17 +3,20 @@
     <a class="brand" href="<%= root_url %>">ThePitch</a>
       
     <ul class="nav pull-right">
+    <% if !@marker %>
       <% if session[:user_id]==nil %>
-      <%= link_to "Sign Up", new_user_url %>
-     
+      <li class="divider-vertical"><%= link_to "Sign Up", new_user_url %></li>
    
       <% elsif User.find_by_id(session[:user_id])%>
         <li class="divider-vertical"><%= link_to "Dashboard", user_url(session[:user_id]) %></li>
         <li class="divider-vertical"><%= link_to "New Pitch", new_pitch_url %></li>
         <li class="divider-vertical"><%= link_to "Logout", logout_url%></li>
       <%end%>
+     
+    <%else %>
+        <li class="divider-vertical"> <%= link_to "About The Pitch", root_url%> </li>
+    <% end %>
     </ul>
-
   </div>
 </div>
 

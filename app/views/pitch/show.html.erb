@@ -8,15 +8,14 @@
 
 
 
-<p class="lead">Copy this Pitch link: <%=link_to "Link for employer",  @pitch.url_string %></p>
+<p class="lead">Copy this Pitch link: <%= @pitch.url_string %></p>
+<p class="lead"><%= link_to "Edit this Pitch", edit_pitch_url(@pitch.id) %></p>
 
 <% if session[:employer_id]%>
     <b>Like what you see? </b>
     <br> Email this candidate: <%= link_to @pitch.user.email, email_url(@pitch.id)%>
 <%end%>
 
-<% @video_link1 = "http://www.youtube.com/embed/YpugK0RpEaU" %>
-<% @video_link2 = "http://www.youtube.com/embed/QjlFqgRbICY" %>
 
 <div class="jumbotron">
   <h4><%=@pitch.user.first_name.capitalize %>'personal pitch</h4>

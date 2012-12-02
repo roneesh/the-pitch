@@ -89,6 +89,8 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
     @pitch_attachments = @pitch.pitch_attachments
     @even_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.even?})
     @odd_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.odd?})
+    @marker = true
+
   end
 
 
