@@ -13,9 +13,12 @@
   <%= f.label :name %><br>
   <%= f.text_field :name %><br><br>
 
+  <%= f.label :description %><br>
+  <%= f.text_field :description %><br><br>
+<% if !@pitch_attachment.attachment %>
   <%= f.label :attachment  %><br>
   <%= f.file_field :attachment %><br>
-  Roneesh, you're not seeing a ghost, pitch id is <%= @pitch_id %>
+<%end%>
   <%= f.hidden_field :pitch_id, :value => @pitch_id %>
 
   <%= f.submit "Submit",:class => "btn btn-primary"%>

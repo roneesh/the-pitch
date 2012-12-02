@@ -46,5 +46,9 @@ class SessionsController < ApplicationController
       redirect_to userlogin_url
     end
   end
+
+  def about_us
+
+  end
   
 end

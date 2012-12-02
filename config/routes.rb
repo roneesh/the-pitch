@@ -6,6 +6,10 @@ ThePitch::Application.routes.draw do
 
   delete '/pitch_attachment/:id' => 'PitchAttachment#destroy', :as => "pitch_attachment_destroy"
 
+  get '/pitch_attachment/:id/edit' => 'PitchAttachment#edit', :as => "pitch_attachment_edit"
+
+  put '/pitch_attachment/:id' => 'PitchAttachment#update'
+ 
   get "attachment/new"
 
   get "attachment/create"
@@ -13,6 +17,8 @@ ThePitch::Application.routes.draw do
   delete "attachment/delete"
 
 root :to => 'Sessions#landingpage'
+
+get '/aboutus' => 'sessions#about_us', :as => 'about_us'
 
 get '/employerlogin' => 'sessions#newemployer', :as => 'employerlogin'
 post '/sessions/createemployer' => 'sessions#create_employer'
