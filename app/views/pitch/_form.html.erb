@@ -14,7 +14,7 @@
 <%end %>
 
 <div class="row-fluid">
-  <div class="span5 offset3 well">
+  <div class="span4 offset3 well">
 <%= form_for @pitch, :html => {:class => "form-horizontal" } do |f| %>
   <fieldset>
 	<%= f.label :headline, "Enter Headline"%>
@@ -55,10 +55,11 @@
 
 
 <% if @pitch.id %>
-  <h3> Create some prompts (think of these like talking points) </h3>
-    <%= link_to "Create New Prompt", "/prompt/new?pitch_id=#{@pitch.id}", remote: true, id: "new_prompt_link" %>
+  <h3> Create custom questions</h3> 
+  <h5>(think of these like talking points) </h5>
+    <%= link_to "Create Custom Question", "/prompt/new?pitch_id=#{@pitch.id}", remote: true, id: "new_prompt_link" %>
 
-  <h4> Manage existing prompts: </h4>
+  <h4> Manage existing custom questions: </h4>
 
     <ul id="existing_prompts">
     <% if @prompts.any? %>
@@ -66,7 +67,7 @@
         <li>
           <%= prompt_object.custom_question %><br>
           <%= prompt_object.custom_answer %><br>
-          <%= link_to "Delete this Prompt", prompt_url(prompt_object.id), method: 'delete' %>
+          <%= link_to "Delete this question", prompt_url(prompt_object.id), method: 'delete' %>
         </li>
       <%end%>
     <%end%>
