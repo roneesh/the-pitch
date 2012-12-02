@@ -174,10 +174,18 @@ a:active,
 }
 
 .table-hover {
-	color: #DEE8DD;
+	color: black;
+	background-color: #DEE8DD;
 }
 .left_bar {
 	background-color: red;
 	height: 100%;
 }
 
+
+.table {
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+}
