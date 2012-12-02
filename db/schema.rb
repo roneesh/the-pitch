@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201045956) do
+ActiveRecord::Schema.define(:version => 20121201224115) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "pitch_id"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20121201045956) do
     t.string   "url_string"
     t.string   "avatar"
     t.string   "resume"
+    t.string   "video_link"
   end
 
   create_table "prompts", :force => true do |t|
