@@ -1,0 +1,30 @@
+#!/bin/sh
+# Don't rename this file; it is used by the upgrade process. 
+# (It needs to be included in the newly upgraded app bundle.)
+
+FILE_TO_OPEN="$1"
+PID="$2"
+shift 2
+
+if [ -z "$FILE_TO_OPEN" -o -z "$PID" ]; then
+    echo "Usage: $0 <file> <pid> [arguments...]" 1>&2
+    exit 1
+fi
+
+i=0
+SIGNAL=0
+while kill -$SIGNAL "$PID" 2>/dev/null; do
+    # Process still exists
+    sleep 0.1
+    if [ $i = 30 ]; then
+        echo "Killing process $PID"
+        SIGNAL=TERM
+    elif [ $i = 50 ]; then
+        echo "Force killing process $PID"
+        SIGNAL=KILL
+    fi
+    i=`expr $i + 1`
+done
+
+exec open "$FILE_TO_OPEN" --args "$@"
+

@@ -1,0 +1,43 @@
+//
+//  JMLaunchPadTransition.cikernel
+//  join.me
+//
+//  Created by Károly Lőrentey on 2012-02-12.
+//  Copyright (c) 2012 LogMeIn, Inc. All rights reserved.
+//
+
+kernel vec4 jmLaunchpadTransition(sampler sourceImage,
+                                  sampler targetImage,
+                                  vec4 extent,
+                                  float time,
+                                  float bottomPadding,
+                                  float foldScale,
+                                  float t1)
+{
+	float foldTime = time;
+	float fadeInTime = (time < t1 ? time / t1 : 1.0);
+    
+    vec2 dc = destCoord();
+    
+    float dy = foldTime * extent.w;
+    float yBottom = extent.y + (1.0 - foldTime) * extent.w;
+    float yFoldCenter = yBottom + 0.5 * (1.0 + bottomPadding) * dy;
+    float dyFoldPanel = 0.5 * (1.0 - bottomPadding) * dy;
+
+    float closenessToFoldCenter = clamp(1.0 - abs(dc.y - yFoldCenter) / dyFoldPanel, 0.0, 1.0);
+
+    vec2 topCenter = vec2(extent.x + extent.z / 2.0, extent.y + extent.w);
+    
+    vec2 scale = vec2(1.0 / (1.0 - (1.0 - foldTime) * (1.0 - foldScale) * closenessToFoldCenter),
+                      1.0 / time);
+
+    vec2 targetPos = scale * (dc - topCenter) + topCenter;
+    
+	vec4 sourcePixel = unpremultiply(sample(sourceImage, samplerCoord(sourceImage)));
+    vec4 destinationPixel = unpremultiply(sample(targetImage, samplerTransform(targetImage, targetPos)));
+    
+    destinationPixel *= 1.0 - (1.0 - foldTime) * closenessToFoldCenter;
+    
+    vec4 result = mix(sourcePixel, destinationPixel, fadeInTime);
+    return premultiply(result);
+}
