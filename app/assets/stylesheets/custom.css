@@ -27,15 +27,17 @@ a:link {
 	font-family: 'Montserrat Alternates', sans-serif;
 	}
 
+
 a:visited {
 	text-decoration:none; 
 	
 	}
 
 a:hover {
-	text-decoration: none; 
+	text-decoration: none;
+	color: white; 
 
-	background-color: white;
+
 	}
 
 a:active {
@@ -149,7 +151,19 @@ a:active,
 	border-radius: 150px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
-	}
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+.profiles{
+	margin: auto;
+}
+/*
+.profstyle{
+	padding-top: 10px;
+	border: 1px dashed black;
+	height: 400px
+}*/
 
 
 
