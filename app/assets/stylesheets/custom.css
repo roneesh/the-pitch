@@ -35,7 +35,7 @@ a:visited {
 
 a:hover {
 	text-decoration: none;
-	color: white; 
+	
 
 
 	}
@@ -164,6 +164,11 @@ a:active,
 	border: 1px dashed black;
 	height: 400px
 }*/
+.navbar a, .navbar .pull-right .divider-vertical a {
+	color: white;
 
+}
 
-
+.table-hover {
+	background-color: #DEE8DD;
+}
