@@ -13,10 +13,12 @@
    <% end %>
 <%end %>
 
-<%= form_for @pitch, :html => { :multipart => true } do |f| %>
-
-	<%= f.label :headline, "Headline*"%>
-	<%= f.text_field :headline %>
+<div class="row-fluid">
+  <div class="span5 offset3 well">
+<%= form_for @pitch, :html => {:class => "form-horizontal" } do |f| %>
+  <fieldset>
+	<%= f.label :headline, "Enter Headline"%>
+	<%= f.text_field :headline %></br>
 	<!-- Must eventually be a collection select or auto-populate -->
 	<% if params[:job_id].present? && session[:user_id].present? %>
 
@@ -28,8 +30,9 @@
 		<%#= f.label :user_id %>
 		<%#= f.text_field :user_id %>
 	<% end %>
-	  <%= f.label :avatar  %>
-  	<%= f.file_field :avatar %>
+	  <%= f.label :avatar, "Upload Avatar" %>
+  	<%= f.file_field :avatar%>
+    
 
   	<% if @pitch.avatar.present? %>
   	<%= f.label :remove_avatar, "Delete image" %>
@@ -41,11 +44,15 @@
 
 	<% if @pitch.avatar.present? %>
   	<%= f.label :remove_resume, "Delete resume" %>
-  	<%= f.check_box :remove_resume %>
+  	<%= f.check_box :remove_resume, :class => "checkbox" %>
 
     <%= f.label :video_link, "Put a Youtube embed string in" %>
     <%= f.text_field :video_link %>
+
   <%end%> 
+
+
+
 
 <% if @pitch.id %>
   <h3> Create some prompts (think of these like talking points) </h3>
@@ -81,13 +88,17 @@
           <%= link_to "Delete this attachment", pitch_attachment_destroy_url(pitch_attachment_object.id), method: 'delete' %>
         </li>
       <%end%>
+
     <%end%>
 
     </ul>
 
   	<br><br><br>
 <% end %>
-<%= f.submit %>
+<%= f.submit "Submit",:class => "btn btn-primary"%>
+</fieldset>
 <%end%>
 
 <small>* Denotes field that can't be blank </small>
+</div>
+</div>

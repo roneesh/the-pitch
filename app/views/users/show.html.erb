@@ -18,9 +18,9 @@
   <div class="row-fluid">
     <div class="span8 offset2">
         <div class="info">
-         
+         <th>Existing Pitches</th>
           <table class="table table-hover">
-           <th>Existing Pitches</th>
+           
           <% @user.pitches.each do |pitch_object| %>
           <tr>
     		    <td><%= link_to pitch_object.headline, pitch_url(pitch_object.id) %></td>
@@ -35,8 +35,6 @@
   </div>
 </div>
 
-<p><strong>LinkedIn and Facebook Settings:</strong><br>
-  We need to add and manage LinkedIn and Facebook Permissions from this area.
-</p>
+
 
 
