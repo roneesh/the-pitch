@@ -1,4 +1,4 @@
-<h1>Edit User <%= @user.first_name %></h1>
+<h1>Edit <%= @user.first_name %>'s Information</h1>
 
 <%= form_for(@user, :url => "/users/#{@user.id}") do |f| %>
 
