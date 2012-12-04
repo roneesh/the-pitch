@@ -62,8 +62,6 @@ ActiveRecord::Schema.define(:version => 20121202221248) do
     t.string   "short_url"
     t.boolean  "viewed"
     t.string   "url_string"
-    t.string   "avatar"
-    t.string   "resume"
     t.string   "video_link"
   end
 

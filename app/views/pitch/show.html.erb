@@ -18,7 +18,7 @@
 
 
 <div class="jumbotron">
-  <h4><%=@pitch.user.first_name.capitalize %>'personal pitch</h4>
+  <h4><%=@pitch.user.first_name.capitalize %>'s personal pitch</h4>
   <% if session[:user_id] && @pitch.job_id.nil? %>
         
   <h1 class="row-fluid span4"><%= @pitch.headline%></h1>
