@@ -1,10 +1,12 @@
+<div class="container-fluid span10 offset2">
+  <div class="jumbotron">
 <% if @pitch.job_id != nil %>
   <b>Job Title:</b> <%= link_to @pitch.job.title, job_path(@pitch.job_id) %><br>
 <% else %>
   <!-- <b>Job Title: No Associated Job (job_id)</b><br> -->
 <%end%>
 
-<div class="container-fluid span10 offset2">
+
 
 
 
@@ -17,12 +19,12 @@
 <%end%>
 
 
-<div class="jumbotron">
+
   <h4><%=@pitch.user.first_name.capitalize %>'personal pitch</h4>
   <% if session[:user_id] && @pitch.job_id.nil? %>
         
-  <h1 class="row-fluid span4"><%= @pitch.headline%></h1>
-  <hr>
+  <h1><%= @pitch.headline%></h1>
+  
 
   <div class="row-fluid span12">
     <%= image_tag @pitch.avatar_url(:thumb).to_s, :size=>'100x100', :class => "row-fluid span2"%>
