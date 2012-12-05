@@ -87,7 +87,7 @@
           Click thubnail to Download<br>
           <!-- <b> Pitch Attachment ID: </b> --> <%#= pitch_attachment_object.id %>
           <!-- <b> Pitch ID: </b>  --><%#= pitch_attachment_object.pitch_id %>
-          <%= link_to "Edit this attachment", pitch_attachment_edit_url(pitch_attachment_object) %><br>
+          <%= link_to "Edit this attachment", pitch_attachment_edit_url(pitch_attachment_object.id) %><br>
           <%= link_to "Delete this attachment", pitch_attachment_destroy_url(pitch_attachment_object.id), method: 'delete' %><br>
         </li>
       <%end%>

@@ -1,14 +1,13 @@
 ThePitch::Application.routes.draw do
 
-  get "pitch_attachment/new"
-
+  get "pitch_attachment/new", :as => "new_pitch_attachment"
   post "pitch_attachment/create"
 
   delete '/pitch_attachment/:id' => 'PitchAttachment#destroy', :as => "pitch_attachment_destroy"
 
   get '/pitch_attachment/:id/edit' => 'PitchAttachment#edit', :as => "pitch_attachment_edit"
 
-  put '/pitch_attachment/:id' => 'PitchAttachment#update'
+  put '/pitch_attachment/:id' => 'PitchAttachment#update', :as => "pitch_attachment_update"
  
   get "attachment/new"
 
