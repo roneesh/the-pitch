@@ -29,8 +29,10 @@
 
   <div class="row-fluid span12">
     <%= image_tag @pitch.avatar_url(:thumb).to_s, :size=>'100x100', :class => "row-fluid span2"%>
+    <br>
+    <%= link_to "Download My Resume", @pitch.resume_url %>
 
-    <p class="row-fluid span8"><b><%= @pitch.user.first_name.capitalize%>'s Story:</b> In a previous life I was a cancer researcher. My life was dedicated to improve the lives of our patients.  After 7 years, I discovered a love for programming.  I started graviatingn more and more with the progammers.  My sister introduced me to Codecademy's online learning system.  I was hooked.  I finally reached a point where I was tired of playing in sandboxes and wanted to actually create.  That's why I applied to The Starter League in Chicago.  Upon my acceptance, I resigned from my job, sold my house, packed my bags and flew to Chicago.   </p>
+    <p class="row-fluid span8"><b><%= @pitch.user.first_name.capitalize%>'s Story:</b> <%#= @pitch.user_story %>  User story will go here!</p>
   </div>
         
       <%end%>

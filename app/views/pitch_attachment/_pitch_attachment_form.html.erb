@@ -1,9 +1,9 @@
 <div class="row-fluid">
   <div class="span5 well user_form">
-<%= form_for @pitch_attachment, id: "new_pitch_attachment_form", :url => { :action => "create" }, :html => { :multipart => true, :class => "form-horizontal"} do |f| %>
+<%= form_for @pitch_attachment, url: pitch_attachment_create_url, :method => :post, id: "new_pitch_attachment_form", :html => { :class => "form-horizontal"} do |f| %>
   
 <!-- class => "form-horizontal",  -->
-
+<!-- , :url => { :action => "create" } < - - This goes into the form_for before html-->
 <!--   :html => { :multipart => true }
 :class => "edit_post", :id => "edit_post_45"
  -->
@@ -15,14 +15,14 @@
 
   <%= f.label :description %><br>
   <%= f.text_field :description %><br><br>
-<% if !@pitch_attachment.attachment %>
+<%# if !@pitch_attachment.attachment %>
   <%= f.label :attachment  %><br>
   <%= f.file_field :attachment %><br>
-<%end%>
+<%#end%>
   <%= f.hidden_field :pitch_id, :value => @pitch_id %>
 
   <%= f.submit "Submit",:class => "btn btn-primary"%>
-  <%#= link_to "Cancel", edit_pitch_url(@pitch_id), :class => "btn btn-primary" %>
+  <%= link_to "Cancel", edit_pitch_url(@pitch_id), :class => "btn btn-primary" %>
   </fieldset> 
 <% end%>
   </div>

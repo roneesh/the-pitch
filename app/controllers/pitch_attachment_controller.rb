@@ -22,12 +22,11 @@ class PitchAttachmentController < ApplicationController
 
   def edit
     @pitch_attachment = PitchAttachment.find_by_id(params[:id])
-
   end
 
   def update
     @pitch_attachment = PitchAttachment.find_by_id(params[:id])
-    @pitch_attachment.update_attributes(params[:pitch])
+    @pitch_attachment.update_attributes(params[:pitch_attachment])
     redirect_to pitch_url(@pitch_attachment.pitch_id)
   end
 

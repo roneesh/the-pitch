@@ -1,7 +1,23 @@
-<!--  Edit A Pitch Attachment -->
+<h1> Here you can edit the name and description, destroy and re-upload to chnage attachment </h1>
 
-<h1>Edit your pitch attachment. </h1>
-<h1>Edit Name and Description </h1>
+<div class="row-fluid">
+  <div class="span5 well user_form">
+<%= form_for @pitch_attachment, :method => :put, :url => pitch_attachment_update_url, id: "new_pitch_attachment_form", :html => { :class => "form-horizontal"} do |f| %>
 
-<%= render 'pitch_attachment_form' %>
+  <fieldset>
 
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br><br>
+
+  <%= f.label :description %><br>
+  <%= f.text_field :description %><br><br>
+
+  <%= f.hidden_field :pitch_id, :value => @pitch_attachment.pitch_id %>
+
+  <%= f.submit "Submit",:class => "btn btn-primary"%>
+  <%= link_to "Cancel", edit_pitch_url(@pitch_attachment.pitch_id), :class => "btn btn-primary" %>
+  
+  </fieldset> 
+<% end%>
+  </div>
+</div>
