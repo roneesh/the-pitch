@@ -30,8 +30,9 @@
   <div class="row-fluid span12">
     <%= image_tag @pitch.avatar_url(:thumb).to_s, :size=>'100x100', :class => "row-fluid span2"%>
     <br>
-    <%= link_to "Download My Resume", @pitch.resume_url %>
-
+    <% if @pitch.resume_url %>
+     <%= link_to "Download My Resume", @pitch.resume_url %>
+    <% end %>
     <p class="row-fluid span8"><b><%= @pitch.user.first_name.capitalize%>'s Story:</b> <%#= @pitch.user_story %>  User story will go here!</p>
   </div>
         
