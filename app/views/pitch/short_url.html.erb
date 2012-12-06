@@ -21,7 +21,7 @@
   <h4><%=@pitch.user.first_name.capitalize %>'personal pitch</h4>
   <% if session[:user_id] && @pitch.job_id.nil? %>
         
-  <h1 class="row-fluid span4"><%= @pitch.headline%></h1>
+  <h1><%= @pitch.headline%></h1>
   <hr>
 
   <div class="row-fluid span12">
@@ -55,7 +55,16 @@
 
     </div>
 
-    <div class="row-fluid span4 "><iframe width="100%" height="300px"src= "<%=@video_link2%>" frameborder="0" allowfullscreen></iframe></div>
+    <% if @pitch.video_link[/youtu\.be\/([^\?]*)/] %>
+      <% youtube_id = $1%>
+    <%else%>
+      <%@pitch.video_link[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]%>
+      <%youtube_id = $5%>
+    <%end%>
+
+    <div class="row-fluid span8 offset3 marketing">
+      <iframe width="640px" height="390px"src= "http://www.youtube.com/embed/<%=youtube_id%>" frameborder="0" allowfullscreen ></iframe>
+    </div>
 
   </div>
 
@@ -67,8 +76,8 @@
       <% @pitch_attachments.each do |pitch_attachment_object| %>
         <li class="row-fluid span3">
           <b> Name: </b><%= pitch_attachment_object.name %><br>
-          <%= link_to image_tag("doc2_icon.png"), pitch_attachment_object.attachment_url.to_s, :size => '100x100'%><br>
-          Click thubnail to Download<br>
+          <%= link_to image_tag(pitch_attachment_object.attachment_url), pitch_attachment_object.attachment_url.to_s%><br>
+          Click thumbnail to Download<br>
           <!-- <b> Pitch Attachment ID: </b> --> <%#= pitch_attachment_object.id %>
           <!-- <b> Pitch ID: </b>  --><%#= pitch_attachment_object.pitch_id %>
           <%= link_to "Delete this attachment", pitch_attachment_destroy_url(pitch_attachment_object.id), method: 'delete' %>
