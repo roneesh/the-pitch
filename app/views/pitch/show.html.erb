@@ -58,15 +58,25 @@
       </div>
 
     </div>
+ 
+ <% if @pitch.video_link[/youtu\.be\/([^\?]*)/] %>
+   <% youtube_id = $1%>
+  <%else%>
+    
+    <%@pitch.video_link[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]%>
+    <%youtube_id = $5%>
+  <%end%>
+
+  
 
     
     
 
-
-    <div class="span4 "><iframe width="500px" height="300px"src= "<%=@pitch.video_link%>" frameborder="0" allowfullscreen></iframe></div>
-
-
+  <div class="row-fluid span8 offset3 marketing">
+    <iframe width="640px" height="390px"src= "http://www.youtube.com/embed/<%=youtube_id%>" frameborder="0" allowfullscreen ></iframe>
   </div>
+
+</div>
 
 <div class="row-fluid marketing">
     <div class="row-fluid span12">  
