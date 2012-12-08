@@ -1,10 +1,4 @@
 <!-- SPECIFIC PAGE STYLINGS -->
-<script>
-$('.carousel').carousel({
-  interval: 200;
-})
-</script>
-
 <style type="text/css">
 
 body {
@@ -40,7 +34,7 @@ body {
 <!-- All blocks are in div span 8, all span classes per row should add to 8 -->
 
 <!-- ABOVE BLOCKS - EMAIL PROMPT, "USER'S PROMPT" AND PITCH HEADLINE -->
-<p><b>Like what you see? Email </b> <%= link_to @pitch.user.first_name, email_url(@pitch.id)%></p>
+<p><b>Like what you see? Email </b> <%= mail_to @pitch.user.first_name, @pitch.user.email%></p>
 
 <h2><%=@pitch.user.first_name.capitalize %>'s pitch</h2>
       <p>
@@ -116,7 +110,7 @@ body {
       <!-- Carousel nav -->
 
     </div>
-    <a class="carousel-control left"  href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control left"  href="#myCarousel" data-slide="prev">&lsaquo;</a>
   <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
   </div> 
 </div>
@@ -150,9 +144,15 @@ body {
 
 
 <!-- BELOW BLOCKS - REPEAT OF USER'S EMAIL AND BACK TO TOP BUTTON, THEY HAVE INNER STYLING -->
-<p style="float: left; padding-left: 20px;"><b>Like what you see? Email </b> <%= link_to @pitch.user.first_name, email_url(@pitch.id)%></p>
-<a href="#top" style="float: right;"> Back to To Top </p>
+<p style="float: left; padding-left: 20px; padding-bottom: 10px;"><b>Like what you see? Email </b> <%= mail_to @pitch.user.first_name, @pitch.user.email%></p>
+<a href="#top" style="float: right; padding-bottom: 10px;"> Back to To Top </p>
 
 
 <!-- This closes out the master span 8 div on line approx line 26 -->
 </div>
+
+<script>
+$('.carousel').carousel({
+  interval: 500;
+})
+</script>
