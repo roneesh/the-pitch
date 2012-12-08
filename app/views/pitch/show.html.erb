@@ -33,7 +33,7 @@
     <% if @pitch.resume_url %>
      <%= link_to "Download My Resume", @pitch.resume_url %>
     <% end %>
-    <p class="row-fluid span8"><b><%= @pitch.user.first_name.capitalize%>'s Story:</b> <%#= @pitch.user_story %>  User story will go here!</p>
+    <p class="row-fluid span8"><b><%= @pitch.user.first_name.capitalize%>'s Story:</b> <%= @pitch.user_story %> </p>
   </div>
         
       <%end%>

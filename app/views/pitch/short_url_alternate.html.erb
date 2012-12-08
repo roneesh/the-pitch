@@ -1,0 +1,106 @@
+<!-- SPECIFIC PAGE STYLINGS -->
+<style type="text/css">
+.row-fluid{
+  background: rgba(0, 0, 0, .2); /*opaque black*/
+  margin: 20px;
+}
+</style>
+
+<!-- All blocks are in div span 8, all span classes per row should add to 8 -->
+
+<!-- ABOVE BLOCKS - EMAIL PROMPT, "USER'S PROMPT" AND PITCH HEADLINE -->
+<p><b>Like what you see? </b> <%= link_to "Email", email_url(@pitch.id)%> this candidate</p>
+
+<h2><%=@pitch.user.first_name.capitalize %>'s pitch</h2>
+      <p>
+        <h1><%= @pitch.headline%></h1>
+      </p>
+
+
+
+<!-- This div makes all the row's span 8, it's very important -->
+<div class="span8 ">
+
+<!-- BLOCK 1 - AVATAR, RESUME AND USER STORY -->
+<div class="row-fluid" >
+  <div class="span4" >
+      <% if session[:user_id] && @pitch.job_id.nil? %>
+        <%= image_tag @pitch.avatar_url(:thumb).to_s, :size=>'100x100'%>
+  </div>
+  <div class="span4" >
+        <p><b><%= @pitch.user.first_name.capitalize%>'s Story:</b> <%= @pitch.user_story %> </p>
+      <%end%>
+  </div>
+</div>
+
+<!-- BLOCK 2 - USER VIDEO -->
+<div class="row-fluid">
+  <div class="span8" >
+      <% if @pitch.video_link[/youtu\.be\/([^\?]*)/] %>
+        <% youtube_id = $1%>
+      <%else%>
+        <%@pitch.video_link[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]%>
+        <%youtube_id = $5%>
+      <%end%>
+          
+    <iframe width="507px" height="284px"src= "http://www.youtube.com/embed/<%=youtube_id%>" frameborder="0" allowfullscreen ></iframe>
+  </div>
+</div>
+ 
+
+<!-- BLOCK 3 - USER PROMPTS, INTENDED TO BE TWO COLUMNS -->
+<div class="row-fluid">
+  <div class="span4">
+      <% @even_index_prompts.each do |prompt_object| %>
+        <h4><%= prompt_object.custom_question %></h4>
+        <p><%= prompt_object.custom_answer %></p>
+      <%end%>
+  </div>
+  <div class="span4" >        
+      <% @odd_index_prompts.each do |prompt_object| %>
+        <h4><%= prompt_object.custom_question %></h4>
+        <p><%= prompt_object.custom_answer %></p>
+      <%end%>
+  </div>
+</div>
+
+
+<!-- BLOCK 4 - PITCH ATTACHMENTS -->
+<% if @pitch_attachments.any? %>
+  <h3> Attachments: </h3>
+    <ul id="existing_attachments">
+      <% @pitch_attachments.each do |pitch_attachment_object| %>
+        <div class="row-fluid">
+          <div class="span8" >
+            <li>
+              <b> Name: </b><%= pitch_attachment_object.name %><br>
+              <b> Description: </b><%= pitch_attachment_object.description %><br>
+              <%= link_to image_tag(pitch_attachment_object.attachment_url), pitch_attachment_object.attachment_url.to_s%><br>
+              <small>Click thumbnail to Download</small><br>
+            </li>
+         </div>
+        </div>
+      <%end%>
+<%end%>
+
+<!-- BLOCK 6 - BUT WAIT THERE'S MORE -->
+<div class="row-fluid">
+  <div class="span8">
+    <p> But wait, theres more: </p>
+      <% if @pitch.resume_url %>
+        <p> <%= link_to "Download My Resume", @pitch.resume_url %> </p>
+      <% end %>
+  </div>
+</div>
+
+
+<!-- BLOCK 7 - REPEAT OF USER'S EMAIL -->
+<div class="row-fluid">
+  <div class="span8" >
+      <p><b>Like what you see? </b> <%= link_to "Email", email_url(@pitch.id)%> this candidate</p>
+      <p> Back to To Top Button </p>
+  </div>
+</div> 
+
+<!-- This closes out the master span 8 div on line approx line 26 -->
+</div>
