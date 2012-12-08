@@ -55,7 +55,7 @@ h1 {
     -khtml-border-radius: 5px;*/
     /*border-radius: 5px;*/
     text-align: center;
-    font-family: Helvetica;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 
@@ -142,7 +142,7 @@ a:active,
 	text-align: center;
 	color: white;
 	font-weight: lighter;
-	font-family:'Helvetica Neue';
+	font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .img-circle {
@@ -189,4 +189,8 @@ a:active,
     -webkit-border-radius: 10px;
     -khtml-border-radius: 10px;
     border-radius: 10px;
+}
+
+.talking_point_list {
+	font-size: small;
 }

@@ -34,7 +34,7 @@ body {
 <!-- All blocks are in div span 8, all span classes per row should add to 8 -->
 
 <!-- ABOVE BLOCKS - EMAIL PROMPT, "USER'S PROMPT" AND PITCH HEADLINE -->
-<p><b>Like what you see? Email </b> <%= mail_to @pitch.user.first_name, @pitch.user.email%></p>
+<p><b>Like what you see? Email </b> <%= mail_to @pitch.user.email, @pitch.user.first_name %></p>
 
 <h2><%=@pitch.user.first_name.capitalize %>'s pitch</h2>
       <p>
@@ -53,7 +53,7 @@ body {
         <%= image_tag @pitch.avatar_url(:thumb).to_s, :size=>'100x100', :style => "border: 10px solid white;"%>
   </div>
   <div class="span6" >
-        <h4><b><%= @pitch.user.first_name.capitalize%>'s Story:</b></h4><p> <%= @pitch.user_story %> </p>
+        <h4><b><%= @pitch.user.first_name.capitalize%>'s Story</b></h4><p> <%= @pitch.user_story %> </p>
       <%end%>
   </div>
 </div>
@@ -110,8 +110,8 @@ body {
 
       </div>
       <!-- Carousel nav -->
-  <a class="carousel-control left"  href="#myCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+  <a class="carousel-control left"  href="#myCarousel" data-slide="prev" >&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next" style="">&rsaquo;</a>
   </div> 
 </div>
 
@@ -125,7 +125,7 @@ body {
     <div class="row-fluid">
      <div class="span8 offset2" >
             <h4 style="border-bottom: 1px solid black;">
-            Attachment: <%= pitch_attachment_object.name %></h4>
+            Attachment - <%= pitch_attachment_object.name %></h4>
             <small> <%= pitch_attachment_object.description %></small><br><br>
             <%= link_to image_tag(pitch_attachment_object.attachment_url), pitch_attachment_object.attachment_url.to_s%><br>
             <small><small>Click thumbnail to Download</small></small><br>
@@ -137,7 +137,7 @@ body {
 <!-- BLOCK 6 - BUT WAIT THERE'S MORE -->
 <div class="row-fluid">
   <div class="span8 offset2">
-    <h4><b>Wait, I still have more to offer: </h4> 
+    <h4><b>Wait, I still have more to offer </h4> 
       <% if @pitch.resume_url %>
         <p> <%= link_to "Download My Resume", @pitch.resume_url %> </p>
       <% end %>
@@ -146,7 +146,7 @@ body {
 
 
 <!-- BELOW BLOCKS - REPEAT OF USER'S EMAIL AND BACK TO TOP BUTTON, THEY HAVE INNER STYLING -->
-<p style="float: left; padding-left: 20px; padding-bottom: 10px;"><b>Like what you see? Email </b> <%= mail_to @pitch.user.first_name, @pitch.user.email%></p>
+<p style="float: left; padding-left: 20px; padding-bottom: 10px;"><p><b>Like what you see? Email </b> <%= mail_to @pitch.user.email, @pitch.user.first_name %></p>
 <a href="#top" style="float: right; padding-bottom: 10px;"> Back to To Top </p>
 
 

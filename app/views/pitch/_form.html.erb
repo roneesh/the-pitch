@@ -14,15 +14,15 @@
 <%end %>
 
 <div class="row-fluid">
-  <div class="span4 offset3 well">
+  <div class="span6 offset3 well">
     
 <%= form_for @pitch, :html => {:class => "form-horizontal" } do |f| %>
   <fieldset>
 	<%= f.label :headline, "Enter Headline"%>
-	<%= f.text_field :headline %></br>
+	<%= f.text_field :headline, class: "span12" %></br>
 
   <%= f.label :user_story, "Enter User Story" %>
-  <%= f.text_area :user_story, :size => "30x5"%></br>
+  <%= f.text_area :user_story, size: "60x5"%></br>
 	<!-- Must eventually be a collection select or auto-populate -->
 	<% if params[:job_id].present? && session[:user_id].present? %>
 
@@ -64,7 +64,15 @@
 
 <% if @pitch.id %>
   <h3> Create custom questions</h3> 
-  <h5>(think of these like talking points) </h5>
+  
+  <ul class="talking_point_list">
+    These could be...
+    <li> Talking points to address concerns an employer might have </li>
+    <li> Highlight your unique skills </li>
+    <li> Things that make you awesome and special </li>
+    <li> Things you're passionate about that tell us who you are </li> <br>
+  </ul>
+
     <%= link_to "Create Custom Question", "/prompt/new?pitch_id=#{@pitch.id}", remote: true, id: "new_prompt_link" %>
 
   <h4> Manage existing custom questions: </h4>
