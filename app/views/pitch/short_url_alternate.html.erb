@@ -1,11 +1,27 @@
 <!-- SPECIFIC PAGE STYLINGS -->
 <style type="text/css">
+
+body {
+    background: linear-gradient(top, gray, white);
+}
+
 .row-fluid{
   background: rgba(0, 0, 0, .2); /*opaque black*/
-  margin: 20px;
+  margin: 4px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.row-fluid .span8 h4 {
+  border-bottom: 1px solid black;
+}
+
+.row-fluid .span6 h4{
+  border-bottom: 1px solid black;
 }
 </style>
 
+<div id="top"></div>
 <!-- All blocks are in div span 8, all span classes per row should add to 8 -->
 
 <!-- ABOVE BLOCKS - EMAIL PROMPT, "USER'S PROMPT" AND PITCH HEADLINE -->
@@ -19,19 +35,20 @@
 
 
 <!-- This div makes all the row's span 8, it's very important -->
-<div class="span8 ">
-
+<!-- <div class="span8 offset 2 ">
+ -->
 <!-- BLOCK 1 - AVATAR, RESUME AND USER STORY -->
 <div class="row-fluid" >
-  <div class="span4" >
+  <div class="span2" >
       <% if session[:user_id] && @pitch.job_id.nil? %>
-        <%= image_tag @pitch.avatar_url(:thumb).to_s, :size=>'100x100'%>
+        <%= image_tag @pitch.avatar_url(:thumb).to_s, :size=>'100x100', :style => "border: 10px solid white;"%>
   </div>
-  <div class="span4" >
-        <p><b><%= @pitch.user.first_name.capitalize%>'s Story:</b> <%= @pitch.user_story %> </p>
+  <div class="span6" >
+        <h4><b><%= @pitch.user.first_name.capitalize%>'s Story:</b></h4><p> <%= @pitch.user_story %> </p>
       <%end%>
   </div>
 </div>
+
 
 <!-- BLOCK 2 - USER VIDEO -->
 <div class="row-fluid">
@@ -42,7 +59,7 @@
         <%@pitch.video_link[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]%>
         <%youtube_id = $5%>
       <%end%>
-          
+    <h4><b> Pitch Video</b> </h4>      
     <iframe width="507px" height="284px"src= "http://www.youtube.com/embed/<%=youtube_id%>" frameborder="0" allowfullscreen ></iframe>
   </div>
 </div>
@@ -67,26 +84,23 @@
 
 <!-- BLOCK 4 - PITCH ATTACHMENTS -->
 <% if @pitch_attachments.any? %>
-  <h3> Attachments: </h3>
-    <ul id="existing_attachments">
-      <% @pitch_attachments.each do |pitch_attachment_object| %>
-        <div class="row-fluid">
-          <div class="span8" >
-            <li>
-              <b> Name: </b><%= pitch_attachment_object.name %><br>
-              <b> Description: </b><%= pitch_attachment_object.description %><br>
-              <%= link_to image_tag(pitch_attachment_object.attachment_url), pitch_attachment_object.attachment_url.to_s%><br>
-              <small>Click thumbnail to Download</small><br>
-            </li>
-         </div>
-        </div>
-      <%end%>
+  <% @pitch_attachments.each do |pitch_attachment_object| %>
+    <div class="row-fluid">
+     <div class="span8" >
+            <h4 style="border-bottom: 1px solid black;"> Attachment </h4>
+            <b> Name: </b><%= pitch_attachment_object.name %><br>
+            <b> Description: </b><%= pitch_attachment_object.description %><br>
+            <%= link_to image_tag(pitch_attachment_object.attachment_url), pitch_attachment_object.attachment_url.to_s%><br>
+            <small>Click thumbnail to Download</small><br>
+     </div>
+    </div>
+  <%end%>
 <%end%>
 
 <!-- BLOCK 6 - BUT WAIT THERE'S MORE -->
 <div class="row-fluid">
   <div class="span8">
-    <p> But wait, theres more: </p>
+    <h4><b>Wait, I still have more to offer: </h4> 
       <% if @pitch.resume_url %>
         <p> <%= link_to "Download My Resume", @pitch.resume_url %> </p>
       <% end %>
@@ -94,13 +108,10 @@
 </div>
 
 
-<!-- BLOCK 7 - REPEAT OF USER'S EMAIL -->
-<div class="row-fluid">
-  <div class="span8" >
-      <p><b>Like what you see? </b> <%= link_to "Email", email_url(@pitch.id)%> this candidate</p>
-      <p> Back to To Top Button </p>
-  </div>
-</div> 
+<!-- BELOW BLOCKS - REPEAT OF USER'S EMAIL AND BACK TO TOP BUTTON, THEY HAVE INNER STYLING -->
+<p style="float: left; padding-left: 20px;"><b>Like what you see? </b> <%= link_to "Email", email_url(@pitch.id)%> this candidate</p>
+<a href="#top" style="float: right;"> Back to To Top </p>
+
 
 <!-- This closes out the master span 8 div on line approx line 26 -->
-</div>
+<!-- </div> -->

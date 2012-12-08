@@ -91,6 +91,8 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
     @odd_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.odd?})
     @marker = true
 
+    render 'short_url_alternate'
+
   end
 
 
