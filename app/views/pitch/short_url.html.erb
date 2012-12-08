@@ -1,3 +1,5 @@
+
+
 <% if @pitch.job_id != nil %>
   <b>Job Title:</b> <%= link_to @pitch.job.title, job_path(@pitch.job_id) %><br>
 <% else %>
@@ -6,67 +8,66 @@
 
 <div class="container-fluid">
 
-
-
-
 <% if session[:employer_id]%>
     <b>Like what you see? </b>
     <br> Email this candidate: <%= link_to @pitch.user.email, email_url(@pitch.id)%>
 <%end%>
 
-<% @video_link1 = "http://www.youtube.com/embed/YpugK0RpEaU" %>
-<% @video_link2 = "http://www.youtube.com/embed/QjlFqgRbICY" %>
+<h4><%=@pitch.user.first_name.capitalize %>'s personal pitch</h4>
 
 <div class="jumbotron">
-  <h4><%=@pitch.user.first_name.capitalize %>'personal pitch</h4>
+  
   <% if session[:user_id] && @pitch.job_id.nil? %>
         
-  <h1><%= @pitch.headline%></h1>
-  <hr>
+    <h1><%= @pitch.headline%></h1>
+    <hr>
 
   <div class="row-fluid span12">
     <%= image_tag @pitch.avatar_url(:thumb).to_s, :size=>'100x100', :class => "row-fluid span2"%>
-
-    <p class="row-fluid span8"><b><%= @pitch.user.first_name.capitalize%>'s Story:</b> In a previous life I was a cancer researcher. My life was dedicated to improve the lives of our patients.  After 7 years, I discovered a love for programming.  I started graviatingn more and more with the progammers.  My sister introduced me to Codecademy's online learning system.  I was hooked.  I finally reached a point where I was tired of playing in sandboxes and wanted to actually create.  That's why I applied to The Starter League in Chicago.  Upon my acceptance, I resigned from my job, sold my house, packed my bags and flew to Chicago.   </p>
+    
+    
+    <p class="row-fluid span8"><b><%= @pitch.user.first_name.capitalize%>'s Story:</b> <%#= @pitch.user_story %>  User story will go here!</p>
   </div>
+
+<div class="row-fluid span12">
+  <% if @pitch.resume_url %>
+    <p> <%= link_to "Download My Resume", @pitch.resume_url %> </p>
+  <% end %>
+</div>
+
         
-      <%end%>
-      
+  <%end%>
 
-      <hr>
-  
-  <div class="row-fluid span12">
+  <% if @pitch.video_link[/youtu\.be\/([^\?]*)/] %>
+    <% youtube_id = $1%>
+  <%else%>
+    <%@pitch.video_link[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]%>
+    <%youtube_id = $5%>
+  <%end%>
 
+    <div class="row-fluid span8 "><!-- offset3 marketing -->
+      <iframe width="640px" height="390px"src= "http://www.youtube.com/embed/<%=youtube_id%>" frameborder="0" allowfullscreen ></iframe>
+    </div>  
+<!-- 
+  </div> -->
+
+ <div class="row-fluid span12">
     <div class="row-fluid span8 marketing">
-
       <div class="span6">
         <% @even_index_prompts.each do |prompt_object| %>
           <h4><%= prompt_object.custom_question %></h4>
           <p><%= prompt_object.custom_answer %></p>
         <%end%>
       </div>
-
       <div class="span6">
         <% @odd_index_prompts.each do |prompt_object| %>
           <h4><%= prompt_object.custom_question %></h4>
           <p><%= prompt_object.custom_answer %></p>
         <%end%>
       </div>
-
     </div>
-
-    <% if @pitch.video_link[/youtu\.be\/([^\?]*)/] %>
-      <% youtube_id = $1%>
-    <%else%>
-      <%@pitch.video_link[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]%>
-      <%youtube_id = $5%>
-    <%end%>
-
-    <div class="row-fluid span8 offset3 marketing">
-      <iframe width="640px" height="390px"src= "http://www.youtube.com/embed/<%=youtube_id%>" frameborder="0" allowfullscreen ></iframe>
-    </div>
-
   </div>
+
 
 <div class="row-fluid marketing">
     <div class="row-fluid span12">  
