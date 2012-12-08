@@ -14,11 +14,11 @@ body {
 	float: center;
 	background-size: cover;
 	font-size: 20px;
-	font-family: 'Montserrat Alternates', sans-serif;
+	font-family: 'Verdana', 'Montserrat Alternates', sans-serif;
 	padding: 0px;
 	margin: 0px;
 	height: 100%;
-	back
+	
 }
 
 
@@ -55,7 +55,7 @@ h1 {
     -khtml-border-radius: 5px;*/
     /*border-radius: 5px;*/
     text-align: center;
-    font-family: Helvetica;
+    font-family: 'Verdana';
 }
 
 
@@ -79,7 +79,7 @@ table {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	margin-bottom: 10px;
-	font-family: sans-serif;
+	font-family: 'Verdana';
 	font-weight: lighter;
 	font-size: 24px;
 }
@@ -142,7 +142,7 @@ a:active,
 	text-align: center;
 	color: white;
 	font-weight: lighter;
-	font-family:'Helvetica Neue';
+	font-family:'Verdana';
 }
 
 .img-circle {
