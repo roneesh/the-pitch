@@ -23,7 +23,8 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
 
   def show
   	@pitch = Pitch.find_by_id(params[:id])
-    prompts = @pitch.prompts
+    @prompts = @pitch.prompts
+    @prompt_sample = @pitch.prompts.sample
     @pitch_attachments = @pitch.pitch_attachments
     @even_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.even?})
     @odd_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.odd?})
@@ -86,6 +87,8 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
     
     @pitch = Pitch.where( :user_id => params[:userid], :id => params[:pitchid]).first
     prompts = @pitch.prompts
+    @prompts = prompts
+    @prompt_sample = @prompts.sample
     @pitch_attachments = @pitch.pitch_attachments
     @even_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.even?})
     @odd_index_prompts = prompts.values_at(* prompts.each_index.select {|i| i.odd?})
