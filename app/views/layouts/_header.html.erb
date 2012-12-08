@@ -3,19 +3,20 @@
     <ul class="nav pull-right">
       <% if !@marker %>
           <% if session[:user_id]==nil %>
-          <li class="divider-vertical"><%=link_to "CareerPivot", root_url %></li>
-          <li class="divider-vertical"><%= link_to "Sign Up Here!", new_user_url %></li>
+          	<li class="divider-vertical"><%=link_to "CareerPivot", root_url %></li>
+          	<li class="divider-vertical"><%= link_to "Sign Up Here!", new_user_url %></li>
+     		<li class="divider-vertical"><%=link_to "About CareerPivot", about_us_url %></li>
      
           <% elsif User.find_by_id(session[:user_id])%>
-            <li class="divider-vertical"><%=link_to "CareerPivot", root_url %></li>
-            <li class="divider-vertical"><%= link_to "Dashboard", user_url(session[:user_id]) %></li>
-            <li class="divider-vertical"><%= link_to "New Pitch", new_pitch_url %></li>
-            <li class="divider-vertical"><%= link_to "Logout", logout_url%></li>
+          	<li class="divider-vertical"><%=link_to "About CareerPivot", about_us_url %></li>
+          	<li class="divider-vertical"><%= link_to "Dashboard", user_url(session[:user_id]) %></li>
+          	<li class="divider-vertical"><%= link_to "New Pitch", new_pitch_url %></li>
+          	<li class="divider-vertical"><%= link_to "Logout", logout_url%></li>
           <%end%>
        
           <%else %>
-              <li class="divider-vertical"><%=link_to "CareerPivot Home", root_url %></li> 
-              <li class="divider-vertical"> <%= link_to "About CareerPivot", root_url%> </li>
+          	<li class="divider-vertical"><%=link_to "CareerPivot Home", root_url %></li> 
+          	<li class="divider-vertical"> <%= link_to "About CareerPivot", root_url%> </li>
       <% end %>
     </ul>
   </div>

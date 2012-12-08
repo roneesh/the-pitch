@@ -15,6 +15,7 @@ ThePitch::Application.routes.draw do
 
   delete "attachment/delete"
 
+
 root :to => 'Sessions#landingpage'
 
 get '/aboutus' => 'sessions#about_us', :as => 'about_us'
