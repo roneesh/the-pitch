@@ -37,15 +37,13 @@
 	<% end %>
 	  
 
-  	<% if @pitch.avatar.present? %>
+  <% if @pitch.avatar.present? %>
   	<%= f.label :remove_avatar, "Delete image" %>
   	<%= f.check_box :remove_avatar %>
-    <% else %>
+  <% else %>
     <%= f.label :avatar, "Upload Avatar" %>
     <%= f.file_field :avatar%>
-  	<%end%>
-
- 
+  <%end%>
 
 	<% if @pitch.resume.present? %>
   	<%= f.label :remove_resume, "Delete resume" %>
@@ -54,6 +52,16 @@
     <%= f.label :resume %>
     <%= f.file_field :resume %>
   <%end%>
+
+  <% if @pitch.background_image.present? %>
+    <%= f.label :remove_background_image, "Delete background image" %>
+    <%= f.check_box :remove_background_image, :class => "checkbox" %>
+  <%else%>
+    <%= f.label :background_image %>
+    <%= f.file_field :background_image %>
+  <%end%>
+
+
 
     <%= f.label :video_link, "Put a Youtube embed string in" %>
     <%= f.text_field :video_link %>

@@ -1,5 +1,5 @@
 class Pitch < ActiveRecord::Base
-  attr_accessible :headline, :job_id, :user_id, :profilepic, :url_string, :avatar, :remove_avatar, :resume, :remove_resume, :video_link, :user_story
+  attr_accessible :headline, :job_id, :user_id, :profilepic, :url_string, :avatar, :remove_avatar, :resume, :remove_resume, :video_link, :user_story, :background_image, :remove_background_image
 
   has_attached_file :profilepic
   
@@ -10,6 +10,7 @@ class Pitch < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
   mount_uploader :resume, ResumeUploader
+  mount_uploader :background_image, BackgroundImageUploader
 
   validates_presence_of :headline
   
