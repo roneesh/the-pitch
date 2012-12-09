@@ -59,10 +59,10 @@
   <%else%>
     <%= f.label :background_image %>
     <%= f.file_field :background_image %>
+    <p><small>Quick tip: images too dark or too bright might have text that doesn't read well </small></p>
   <%end%>
 
-
-
+    <br><br>
     <%= f.label :video_link, "Put a Youtube embed string in" %>
     <%= f.text_field :video_link %>
 

@@ -23,6 +23,26 @@ $('.carousel').carousel({
 
 <style type="text/css">
 
+<% if @pitch.background_image %>
+  body {
+    background: white;
+    background-image: url(<%= @pitch.background_image_url.to_s %>);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position:  absolute;
+    }
+<%else%>
+  body #pitch_preview {
+    background: white;
+    background-image: url("/assets/background5.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position:  absolute;
+    }
+<%end%>
+
 body {
     background: white;
 }
@@ -59,6 +79,8 @@ body {
 <p>This is what a Pitch looks like to an employer</p>
 
 <hr>
+
+<div id="pitch_preview">
 
 <p><b>Like what you see? Email </b> <%= mail_to @pitch.user.email, @pitch.user.first_name %></p>
 <h2><%=@pitch.user.first_name.capitalize %>'s pitch</h2>
@@ -193,6 +215,8 @@ body {
 <!-- BELOW BLOCKS - REPEAT OF USER'S EMAIL AND BACK TO TOP BUTTON, THEY HAVE INNER STYLING -->
 <p style="float: left; padding-left: 20px; padding-bottom: 10px;"><b>Like what you see? Email </b> <%= mail_to @pitch.user.email, @pitch.user.first_name %></p>
 <p><a href="#top" style="float: right; padding-bottom: 10px;"> Back to To Top </p>
+
+</div>
 
 
 
