@@ -1,5 +1,5 @@
 class Pitch < ActiveRecord::Base
-  attr_accessible :headline, :job_id, :user_id, :profilepic, :url_string, :avatar, :remove_avatar, :resume, :remove_resume, :video_link, :user_story, :background_image, :remove_background_image
+  attr_accessible :headline, :job_id, :user_id, :profilepic, :url_string, :avatar, :remove_avatar, :resume, :remove_resume, :video_link, :user_story, :background_image, :remove_background_image, :descriptive_url
 
   has_attached_file :profilepic
   
@@ -16,6 +16,10 @@ class Pitch < ActiveRecord::Base
   
   def url_string
     return "careerpivot.herokuapp.com/#{self.user.id}/#{self.id}/a-pitch-from/#{self.user.first_name}"
+  end
+
+  def short_url
+    return "careerpivot.herokuapp.com/a_pitch/#{self.descriptive_url}"
   end
 
 end

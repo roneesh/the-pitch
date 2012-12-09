@@ -48,6 +48,7 @@ get '/pitches/:id/edit' => 'Pitch#edit', :as => 'edit_pitch'
 post '/shorten/:id' => 'Pitch#shorten', :as => 'shorten'
 get '/email/:id' => 'Pitch#email', :as => 'email'
 get '/*userid/*pitchid/a-pitch-from/*userfirstname' => 'Pitch#short_url'
+get '/a_pitch/*short_descriptive_url' => 'Pitch#short_url'
 
 get '/employers' => 'employers#index', :as => 'employers'
 get '/employers/new' => 'employers#new', :as => 'new_employer'

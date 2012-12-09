@@ -86,7 +86,8 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
 
   def short_url
     
-    @pitch = Pitch.where( :user_id => params[:userid], :id => params[:pitchid]).first
+    # @pitch = Pitch.where( :user_id => params[:userid], :id => params[:pitchid]).first
+    @pitch = Pitch.where( descriptive_url: params[:short_descriptive_url]).first
     prompts = @pitch.prompts
     @prompts = prompts
     @prompt_sample = @prompts.sample
