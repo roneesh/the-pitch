@@ -139,13 +139,17 @@ body {
         <!-- Carousel items -->
         <div class="carousel-inner">
           <div class="active item">
+              <div class="span8 offset2">
               <h4><%= @prompt_sample.custom_question %></h4>
               <p><%=  @prompt_sample.custom_answer %></p>
+              </div>
           </div>
           <% @prompts.each do |prompt_object| %>
               <div class="item">
+                <div class="span8 offset2">
                 <h4><%= prompt_object.custom_question %></h4>
                 <p><%= prompt_object.custom_answer %></p>
+                </div>
               </div>
           <%end%>
         </div>
