@@ -23,6 +23,7 @@ before_filter :ensure_correct_user_id, only: [:show, :edit]
 
   def show
   	@pitch = Pitch.find_by_id(params[:id])
+    prompts = @pitch.prompts
     @prompts = Pitch.find_by_id(params[:id]).prompts
     @prompt_sample = @pitch.prompts.sample
     @pitch_attachments = @pitch.pitch_attachments
