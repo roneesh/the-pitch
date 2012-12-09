@@ -139,10 +139,23 @@ body {
   <% @pitch_attachments.each do |pitch_attachment_object| %>
     <div class="row-fluid">
      <div class="span8 offset2" >
+            <%if pitch_attachment_object.name == "" || pitch_attachment_object.name == nil%>
+            <h4 style="border-bottom: 1px solid black;">
+            Attachment</h4>
+          <%else%>
             <h4 style="border-bottom: 1px solid black;">
             Attachment - <%= pitch_attachment_object.name %></h4>
+          <%end%>
+          <% if pitch_attachment_object.description %>
             <small> <%= pitch_attachment_object.description %></small><br><br>
+          <%end%>
+      <% if pitch_attachment_object.attachment_url.end_with?('.pdf') ||   
+            pitch_attachment_object.attachment_url.end_with?('.doc') ||
+            pitch_attachment_object.attachment_url.end_with?('.pages') %>
+      <%= link_to image_tag("document_image.jpeg"), pitch_attachment_object.attachment_url.to_s %><br>
+      <%else%>
             <%= link_to image_tag(pitch_attachment_object.attachment_url), pitch_attachment_object.attachment_url.to_s%><br>
+      <%end%>
             <small><small>Click thumbnail to Download</small></small><br>
      </div>
     </div>

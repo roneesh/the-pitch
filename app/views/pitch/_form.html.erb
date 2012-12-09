@@ -99,7 +99,13 @@
       <% @pitch_attachments.each do |pitch_attachment_object| %>
         <li>
           <b> Name: </b><%= pitch_attachment_object.name %><br>
-          <%= link_to image_tag(pitch_attachment_object.attachment_url), pitch_attachment_object.attachment_url.to_s %><br>
+          <% if pitch_attachment_object.attachment_url.end_with?('.pdf') ||   
+            pitch_attachment_object.attachment_url.end_with?('.doc') ||
+            pitch_attachment_object.attachment_url.end_with?('.pages') %>
+      <%= link_to image_tag("document_image.jpeg"), pitch_attachment_object.attachment_url.to_s %><br>
+      <%else%>
+            <%= link_to image_tag(pitch_attachment_object.attachment_url), pitch_attachment_object.attachment_url.to_s%><br>
+      <%end%>
           Click thubnail to Download<br>
           <!-- <b> Pitch Attachment ID: </b> --> <%#= pitch_attachment_object.id %>
           <!-- <b> Pitch ID: </b>  --><%#= pitch_attachment_object.pitch_id %>
@@ -111,6 +117,10 @@
     <%end%>
 
     </ul>
+
+
+
+
 
   	<br><br><br>
 <% end %>
