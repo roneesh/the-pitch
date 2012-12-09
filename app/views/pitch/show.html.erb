@@ -1,20 +1,3 @@
-<% if @pitch.job_id != nil %>
-  <b>Job Title:</b> <%= link_to @pitch.job.title, job_path(@pitch.job_id) %><br>
-<% else %>
-  <!-- <b>Job Title: No Associated Job (job_id)</b><br> -->
-<%end%>
-
-
-
-
-
-<p class="lead">E-mail this link to an employer: <%= @pitch.url_string %><br>
-<small> You might wanna write some other stuff in the email too... </small></p>
-<p class="lead"><%= link_to "Edit this Pitch", edit_pitch_url(@pitch.id) %></p>
-
-
-
-
 <script>
 $('.carousel').carousel({
   interval: 200;
@@ -35,7 +18,6 @@ $('.carousel').carousel({
 <%else%>
   body #pitch_preview {
     background: white;
-    background-image: url("/assets/background5.jpeg");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -72,7 +54,12 @@ body {
 }
 </style>
 
-<div id="top"></div>
+
+<p class="lead">E-mail this link to an employer: <%= @pitch.url_string %><br>
+<small> You might wanna write some other stuff in the email too... </small></p>
+<p class="lead"><%= link_to "Edit this Pitch", edit_pitch_url(@pitch.id) %></p>
+
+<div id="top"></div> 
 <!-- All blocks are in div span 8, all span classes per row should add to 8 -->
 
 <!-- ABOVE BLOCKS - EMAIL PROMPT, "USER'S PROMPT" AND PITCH HEADLINE -->
@@ -213,11 +200,8 @@ body {
  <% end %>
 
 <!-- BELOW BLOCKS - REPEAT OF USER'S EMAIL AND BACK TO TOP BUTTON, THEY HAVE INNER STYLING -->
-<p style="float: left; padding-left: 20px; padding-bottom: 10px;"><b>Like what you see? Email </b> <%= mail_to @pitch.user.email, @pitch.user.first_name %></p>
-<p><a href="#top" style="float: right; padding-bottom: 10px;"> Back to To Top </p>
+<h4 style="float: left; padding-left: 20px; padding-bottom: 10px;"><b>Like what you see? Email </b> <%= mail_to @pitch.user.email, @pitch.user.first_name %></h4>
+<h4><a href="#top" style="float: right; padding-bottom: 10px;"> Back to To Top </h4>
 
 </div>
-
-
-
 
