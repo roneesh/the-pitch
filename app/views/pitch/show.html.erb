@@ -116,33 +116,39 @@ body {
 </div> -->
 
 <!-- BLOCK 3 - USER PROMPTS AS CAROUSEL -->
-
-<div class="row-fluid">
-  <div class="span8 offset2">
-    <div id="myCarousel" class="carousel slide">
-      <!-- Carousel items -->
-      <div class="carousel-inner">
-        <div class="active item">
-            <h4><%= @prompt_sample.custom_question %></h4>
-            <p><%= @prompt_sample.custom_answer %></p>
-        </div>
-        <% @prompts.each do |prompt_object| %>
-            <div class="item">
-              <h4><%= prompt_object.custom_question %></h4>
-              <p><%= prompt_object.custom_answer %></p>
-            </div>
-        <%end%>
-
-      </div>
-      <!-- Carousel nav -->
-  <a class="carousel-control left"  href="#myCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a> 
-
+<!-- if no prompts: line break, if one prompt: display, if many prompts: carousel -->
+<% if @prompts.count < 1 %>
+<% elsif @prompts.count == 1 %>
+  <div class="row-fluid">
+    <div class="span8 offset2">
+      <h4><%= @prompts.first.custom_question %></h4>
+      <p> <%= @prompts.first.custom_answer %>  </p>
     </div>
-    
   </div>
-  
-</div>
+<% else %>
+  <div class="row-fluid">
+    <div class="span8 offset2">
+      <div id="myCarousel" class="carousel slide">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+          <div class="active item">
+              <h4><%= @prompt_sample.custom_question %></h4>
+              <p><%=  @prompt_sample.custom_answer %></p>
+          </div>
+          <% @prompts.each do |prompt_object| %>
+              <div class="item">
+                <h4><%= prompt_object.custom_question %></h4>
+                <p><%= prompt_object.custom_answer %></p>
+              </div>
+          <%end%>
+        </div>
+        <!-- Carousel nav -->
+    <a class="carousel-control left"  href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a> 
+      </div>
+    </div>
+  </div>
+<% end %>
 
 
 
@@ -162,15 +168,19 @@ body {
 <%end%>
 
 <!-- BLOCK 6 - BUT WAIT THERE'S MORE -->
-<div class="row-fluid">
-  <div class="span8 offset2">
-    <h4><b>Wait, I still have more to offer </h4> 
-      <% if @pitch.resume_url %>
-        <p> <%= link_to "Download My Resume", @pitch.resume_url %> </p>
-      <% end %>
+<% if @pitch.resume_url %>
+  <div class="row-fluid">
+    <div class="span8 offset2">
+      <h4><b>Wait, I still have more to offer </h4> 
+      <p> <%= link_to "Download My Resume", @pitch.resume_url %> </p>
+    </div>
   </div>
-</div>
+ <% end %>
+
+<!-- BELOW BLOCKS - REPEAT OF USER'S EMAIL AND BACK TO TOP BUTTON, THEY HAVE INNER STYLING -->
+<p style="float: left; padding-left: 20px; padding-bottom: 10px;"><b>Like what you see? Email </b> <%= mail_to @pitch.user.email, @pitch.user.first_name %></p>
+<p><a href="#top" style="float: right; padding-bottom: 10px;"> Back to To Top </p>
 
 
-<p style="float: left; padding-left: 20px; padding-bottom: 10px;"><p><b>Like what you see? Email </b> <%= mail_to @pitch.user.email, @pitch.user.first_name %></p>
-<a href="#top" style="float: right; padding-bottom: 10px;"> Back to To Top </p>
+
+

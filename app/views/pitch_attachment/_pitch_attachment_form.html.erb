@@ -11,6 +11,8 @@
   <%= f.text_field :description %><br><br>
 <%# if !@pitch_attachment.attachment %>
   <%= f.label :attachment  %><br>
+  <p><small> Currently we only support these file types:</small></p>
+  <p><small> .jpg .jpeg .gif .png .pdf .doc .pages</small> </p>
   <%= f.file_field :attachment %><br><br><br>
 <%#end%>
   <%= f.hidden_field :pitch_id, :value => @pitch_id %>
