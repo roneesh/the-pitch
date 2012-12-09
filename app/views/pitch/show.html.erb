@@ -83,12 +83,10 @@ body {
 <!-- BLOCK 1 - AVATAR, RESUME AND USER STORY -->
 <div class="row-fluid" >
   <div class="span2 offset2" >
-      <% if session[:user_id] && @pitch.job_id.nil? %>
         <%= image_tag @pitch.avatar_url(:thumb).to_s, :size=>'100x100', :style => "border: 10px solid white;"%>
   </div>
   <div class="span6" >
         <h4><b><%= @pitch.user.first_name.capitalize%>'s Story</b></h4><p> <%= @pitch.user_story %> </p>
-      <%end%>
   </div>
 </div>
 
