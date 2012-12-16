@@ -10,7 +10,7 @@
   <%= f.text_field :last_name, :class => "span12"%>
 
 	<%= f.label :email%>
-  <%= f.text_field :email, :class => "span12"%>
+  <%= f.text_field :email, :class => "span12", :html => {:status => :disabled }%>
 
   <!-- <%= f.label :linkedin_script%>
   <%= f.text_area :linkedin_script, :class => "span12", :size => '40x8' %> -->
@@ -20,6 +20,9 @@
 
  	<%= f.label :password_confirmation%>
   <%= f.password_field :password_confirmation, :class => "span12"%>
+
+ <%= f.label :twitter_handle %>
+ <%= f.text_field :twitter_handle, :class => "span12" %>
 
   <%= f.submit "Submit",:class => "btn btn-primary"%>
   <%= link_to "Cancel", root_url, :class => "btn btn-primary" %>
