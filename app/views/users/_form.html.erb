@@ -1,34 +1,36 @@
 
 <div class="row-fluid">
   <div class="span5 well user_form">
-<%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
-  <fieldset>
-	<%= f.label :first_name%>
-  <%= f.text_field :first_name, :class => "span12"%>
-    
-	<%= f.label :last_name%>
-  <%= f.text_field :last_name, :class => "span12"%>
+    <%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
+      <fieldset>
+      	<%= f.label :first_name%>
+        <%= f.text_field :first_name, :class => "span12"%>
+          
+      	<%= f.label :last_name%>
+        <%= f.text_field :last_name, :class => "span12"%>
 
-	<%= f.label :email%>
-  <%= f.text_field :email, :class => "span12", :html => {:status => :disabled }%>
+      	<%= f.label :email%>
+        <%= f.text_field :email, :class => "span12", :html => {:status => :disabled }%>
 
-  <!-- <%= f.label :linkedin_script%>
-  <%= f.text_area :linkedin_script, :class => "span12", :size => '40x8' %> -->
+        <!-- <%= f.label :linkedin_script%>
+        <%= f.text_area :linkedin_script, :class => "span12", :size => '40x8' %> -->
 
-  <%= f.label :password%>
-  <%= f.password_field :password, :class => "span12"%>
+        <%= f.label :password%>
+        <%= f.password_field :password, :class => "span12"%>
 
- 	<%= f.label :password_confirmation%>
-  <%= f.password_field :password_confirmation, :class => "span12"%>
+       	<%= f.label :password_confirmation%>
+        <%= f.password_field :password_confirmation, :class => "span12"%>
 
- <%= f.label :twitter_handle %>
- <%= f.text_field :twitter_handle, :class => "span12" %>
+         <%= f.label :twitter_handle %>
+         <%= f.text_field :twitter_handle, :class => "span12" %>
 
-  <%= f.submit "Submit",:class => "btn btn-primary"%>
-  <%= link_to "Cancel", root_url, :class => "btn btn-primary" %>
-  </fieldset> 
-<% end%>
+         <br><br>
+
+        <%= f.submit "Submit",:class => "btn btn-primary"%>
+        <%= link_to "Cancel", root_url, :class => "btn btn-primary", :style => "float: right;", :alert => "Really cancel?" %>
+      </fieldset> 
+    <% end %>
   </div>
 
-  <div class="right_sidebar span7"></div>
+  <div class="right_sidebar well span7"></div>
 </div>
