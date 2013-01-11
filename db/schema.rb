@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216022740) do
+ActiveRecord::Schema.define(:version => 20121217040251) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "pitch_id"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20121216022740) do
     t.string   "password_digest"
     t.string   "linkedin_script"
     t.string   "twitter_handle"
+    t.string   "handle"
   end
 
 end
